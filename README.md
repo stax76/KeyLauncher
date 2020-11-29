@@ -48,7 +48,7 @@ Files, file links and folders can be added via drag & drop.
 
 The list on the left side has a context menu showing most of the features and their shortcuts.
 
-KeyLauncher analyzes the content, if it detects that the content is launchable then it will launch it (using shell-execute), otherwise copy it to the clipboard.
+KeyLauncher analyzes the content, if it detects that the content is launchable then it will launch it (using shell-execute), otherwise the text get pasted into the active application.
 
 Pressing enter starts the launch process.
 
