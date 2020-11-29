@@ -3,8 +3,8 @@ Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("KeyLauncher")>
-<Assembly: AssemblyDescription("Launcher for command lines and URLs.")>
-<Assembly: AssemblyCompany("stax76")>
+<Assembly: AssemblyDescription("Simple keyboard driven launcher application")>
+<Assembly: AssemblyCompany("Frank Skare (stax76)")>
 <Assembly: AssemblyProduct("KeyLauncher")>
 <Assembly: AssemblyCopyright("Copyright (C) Frank Skare (stax76)")>
 

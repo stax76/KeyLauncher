@@ -36,6 +36,12 @@ Public Class MainForm
     Friend WithEvents miSearch As MenuItem
     Friend WithEvents miHide As MenuItem
     Friend WithEvents miExit As MenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
+    Friend WithEvents miMoveWindowLeft As MenuItem
+    Friend WithEvents miMoveWindowRight As MenuItem
+    Friend WithEvents miMoveWindowTop As MenuItem
+    Friend WithEvents miMoveWindowBottom As MenuItem
+    Friend WithEvents miAbout As MenuItem
     Private components As IContainer
 
     Sub InitializeComponent()
@@ -58,14 +64,20 @@ Public Class MainForm
         Me.miAdvanced = New MenuItem()
         Me.miSearchAndReplace = New MenuItem()
         Me.miShowAll = New MenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.miMoveWindowLeft = New MenuItem()
+        Me.miMoveWindowRight = New MenuItem()
+        Me.miMoveWindowTop = New MenuItem()
+        Me.miMoveWindowBottom = New MenuItem()
+        Me.miHide = New MenuItem()
+        Me.miAbout = New MenuItem()
+        Me.miExit = New MenuItem()
         Me.tlpRTB = New System.Windows.Forms.TableLayoutPanel()
         Me.rtb = New System.Windows.Forms.RichTextBox()
         Me.cmsRTB = New ContextMenuStripEx(Me.components)
         Me.miCut = New MenuItem()
         Me.miCopy = New MenuItem()
         Me.miPaste = New MenuItem()
-        Me.miHide = New MenuItem()
-        Me.miExit = New MenuItem()
         Me.tlpMain.SuspendLayout()
         Me.tlpName.SuspendLayout()
         Me.tlpItems.SuspendLayout()
@@ -157,16 +169,16 @@ Public Class MainForm
         'cmsLB
         '
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
-        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAdvanced, Me.miHide, Me.miExit})
+        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(289, 585)
+        Me.cmsLB.Size = New System.Drawing.Size(421, 729)
         '
         'miNew
         '
         Me.miNew.Action = Nothing
         Me.miNew.Name = "miNew"
         Me.miNew.ShortcutKeyDisplayString = ""
-        Me.miNew.Size = New System.Drawing.Size(288, 67)
+        Me.miNew.Size = New System.Drawing.Size(420, 67)
         Me.miNew.Text = "New"
         '
         'miRename
@@ -174,21 +186,21 @@ Public Class MainForm
         Me.miRename.Action = Nothing
         Me.miRename.Name = "miRename"
         Me.miRename.ShortcutKeyDisplayString = ""
-        Me.miRename.Size = New System.Drawing.Size(288, 67)
+        Me.miRename.Size = New System.Drawing.Size(420, 67)
         Me.miRename.Text = "Rename      "
         '
         'miEdit
         '
         Me.miEdit.Action = Nothing
         Me.miEdit.Name = "miEdit"
-        Me.miEdit.Size = New System.Drawing.Size(288, 67)
+        Me.miEdit.Size = New System.Drawing.Size(420, 67)
         Me.miEdit.Text = "Edit"
         '
         'miSearch
         '
         Me.miSearch.Action = Nothing
         Me.miSearch.Name = "miSearch"
-        Me.miSearch.Size = New System.Drawing.Size(288, 67)
+        Me.miSearch.Size = New System.Drawing.Size(420, 67)
         Me.miSearch.Text = "Search"
         '
         'miDelete
@@ -196,7 +208,7 @@ Public Class MainForm
         Me.miDelete.Action = Nothing
         Me.miDelete.Name = "miDelete"
         Me.miDelete.ShortcutKeyDisplayString = ""
-        Me.miDelete.Size = New System.Drawing.Size(288, 67)
+        Me.miDelete.Size = New System.Drawing.Size(420, 67)
         Me.miDelete.Text = "Delete"
         '
         'miPriority
@@ -204,7 +216,7 @@ Public Class MainForm
         Me.miPriority.Action = Nothing
         Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow})
         Me.miPriority.Name = "miPriority"
-        Me.miPriority.Size = New System.Drawing.Size(288, 67)
+        Me.miPriority.Size = New System.Drawing.Size(420, 67)
         Me.miPriority.Text = "Priority"
         '
         'miPriorityHigh
@@ -231,9 +243,9 @@ Public Class MainForm
         'miAdvanced
         '
         Me.miAdvanced.Action = Nothing
-        Me.miAdvanced.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSearchAndReplace, Me.miShowAll})
+        Me.miAdvanced.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSearchAndReplace, Me.miShowAll, Me.ToolStripMenuItem1, Me.miMoveWindowLeft, Me.miMoveWindowRight, Me.miMoveWindowTop, Me.miMoveWindowBottom})
         Me.miAdvanced.Name = "miAdvanced"
-        Me.miAdvanced.Size = New System.Drawing.Size(288, 67)
+        Me.miAdvanced.Size = New System.Drawing.Size(420, 67)
         Me.miAdvanced.Text = "Advanced"
         '
         'miSearchAndReplace
@@ -241,15 +253,68 @@ Public Class MainForm
         Me.miSearchAndReplace.Action = Nothing
         Me.miSearchAndReplace.Name = "miSearchAndReplace"
         Me.miSearchAndReplace.ShortcutKeyDisplayString = ""
-        Me.miSearchAndReplace.Size = New System.Drawing.Size(527, 67)
+        Me.miSearchAndReplace.Size = New System.Drawing.Size(576, 67)
         Me.miSearchAndReplace.Text = "Search and Replace"
         '
         'miShowAll
         '
         Me.miShowAll.Action = Nothing
         Me.miShowAll.Name = "miShowAll"
-        Me.miShowAll.Size = New System.Drawing.Size(527, 67)
+        Me.miShowAll.Size = New System.Drawing.Size(576, 67)
         Me.miShowAll.Text = "Show All"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(573, 6)
+        '
+        'miMoveWindowLeft
+        '
+        Me.miMoveWindowLeft.Action = Nothing
+        Me.miMoveWindowLeft.Name = "miMoveWindowLeft"
+        Me.miMoveWindowLeft.Size = New System.Drawing.Size(576, 67)
+        Me.miMoveWindowLeft.Text = "Move Window Left"
+        '
+        'miMoveWindowRight
+        '
+        Me.miMoveWindowRight.Action = Nothing
+        Me.miMoveWindowRight.Name = "miMoveWindowRight"
+        Me.miMoveWindowRight.Size = New System.Drawing.Size(576, 67)
+        Me.miMoveWindowRight.Text = "Move Window Right"
+        '
+        'miMoveWindowTop
+        '
+        Me.miMoveWindowTop.Action = Nothing
+        Me.miMoveWindowTop.Name = "miMoveWindowTop"
+        Me.miMoveWindowTop.Size = New System.Drawing.Size(576, 67)
+        Me.miMoveWindowTop.Text = "Move Window Top"
+        '
+        'miMoveWindowBottom
+        '
+        Me.miMoveWindowBottom.Action = Nothing
+        Me.miMoveWindowBottom.Name = "miMoveWindowBottom"
+        Me.miMoveWindowBottom.Size = New System.Drawing.Size(576, 67)
+        Me.miMoveWindowBottom.Text = "Move Window Bottom"
+        '
+        'miHide
+        '
+        Me.miHide.Action = Nothing
+        Me.miHide.Name = "miHide"
+        Me.miHide.Size = New System.Drawing.Size(420, 67)
+        Me.miHide.Text = "Hide"
+        '
+        'miAbout
+        '
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(420, 56)
+        Me.miAbout.Text = "About"
+        '
+        'miExit
+        '
+        Me.miExit.Action = Nothing
+        Me.miExit.Name = "miExit"
+        Me.miExit.Size = New System.Drawing.Size(420, 67)
+        Me.miExit.Text = "Exit"
         '
         'tlpRTB
         '
@@ -308,18 +373,6 @@ Public Class MainForm
         Me.miPaste.Size = New System.Drawing.Size(281, 67)
         Me.miPaste.Text = "Paste"
         '
-        'miHide
-        '
-        Me.miHide.Name = "miHide"
-        Me.miHide.Size = New System.Drawing.Size(288, 56)
-        Me.miHide.Text = "Hide"
-        '
-        'miExit
-        '
-        Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(288, 56)
-        Me.miExit.Text = "Exit"
-        '
         'MainForm
         '
         Me.AllowDrop = True
@@ -352,7 +405,7 @@ Public Class MainForm
 
     Private BlockTextChanged As Boolean
     Private Items As List(Of Item)
-    Private SettingsFolder As String = "C:\Users\frank\OneDrive\Settings\KeyLauncher\"
+    Private SettingsFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\KeyLauncher\"
     Private SettingsFileName As String = "Settings.xml"
     Private TextBackColor As Color
     Private TextForeColor As Color
@@ -425,11 +478,11 @@ Public Class MainForm
 
     Sub SaveItems()
         If g.HasChanged Then
+            If Not Directory.Exists(SettingsFolder) Then
+                Directory.CreateDirectory(SettingsFolder)
+            End If
+
             XmlSerializerHelp.SaveXML(SettingsFolder + SettingsFileName, Items)
-
-            Dim backupFilepath = SettingsFolder & DateTime.Now.Month & ".xml"
-            File.Copy(SettingsFolder + SettingsFileName, backupFilepath, True)
-
             g.HasChanged = False
         End If
     End Sub
@@ -467,7 +520,11 @@ Public Class MainForm
 
                         proc.StartInfo.UseShellExecute = True
                         proc.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-                        If asAdmin Then proc.StartInfo.Verb = "runas"
+
+                        If asAdmin Then
+                            proc.StartInfo.Verb = "runas"
+                        End If
+
                         proc.Start()
                     End Using
                 Catch ex As Exception
@@ -481,10 +538,10 @@ Public Class MainForm
                 value = item.Value
 
                 Do
-                    Dim m = Regex.Match(value, "<%(.+?)%>")
+                    Dim match = Regex.Match(value, "<%(.+?)%>")
 
-                    If m.Success Then
-                        Dim macro = m.Groups(1).Value
+                    If match.Success Then
+                        Dim macro = match.Groups(1).Value
                         Dim ret = InputBox(macro & "?")
 
                         If ret = "" Then
@@ -512,13 +569,13 @@ Public Class MainForm
     End Function
 
     Function InputBox(text As String, title As String, Optional value As String = "") As String
-        Dim ib As New InputBox()
-        ib.Title = title
-        ib.Text = text
-        ib.Value = value
-        ib.Owner = Me
-        ib.Show()
-        Return ib.Value
+        Dim box As New InputBox()
+        box.Title = title
+        box.Text = text
+        box.Value = value
+        box.Owner = Me
+        box.Show()
+        Return box.Value
     End Function
 
     Sub MainForm_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
@@ -581,35 +638,6 @@ Public Class MainForm
         End If
     End Sub
 
-    Sub ShowHelp()
-        Dim caption =
-"Elevated: Shift"
-
-        Using form As New Form
-            form.Text = "Help"
-            form.ShowIcon = False
-            form.StartPosition = FormStartPosition.CenterParent
-            form.FormBorderStyle = FormBorderStyle.FixedDialog
-            form.ShowInTaskbar = False
-            form.MinimizeBox = False
-            form.MaximizeBox = False
-            form.TopMost = True
-            form.AutoSize = True
-
-            AddHandler form.KeyDown, Sub(s As Object, e As KeyEventArgs) If e.KeyData = Keys.Escape Then form.Close()
-
-            Dim la As New Label
-            la.Font = New Font("Consolas", 12)
-            la.AutoSize = True
-            la.Text = caption.FormatColumn(":", True)
-            la.Location = New Point(0, 0)
-            la.Padding = New Padding(10)
-
-            form.Controls.Add(la)
-            form.ShowDialog()
-        End Using
-    End Sub
-
     Sub RenameSelectedItem()
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
@@ -632,8 +660,6 @@ Public Class MainForm
         Dim workingArea = Screen.FromControl(Me).WorkingArea
 
         Select Case e.KeyData
-            Case Keys.F1
-                ShowHelp()
             Case Keys.F2
                 RenameSelectedItem()
             Case Keys.F4
@@ -731,13 +757,9 @@ Public Class MainForm
     End Sub
 
     Sub tbName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbName.KeyPress
-        'supress annoying sound
         Dim k = CType(Convert.ToInt32(e.KeyChar), Keys)
 
-        If ModifierKeys = Keys.Control OrElse
-            k = Keys.Escape OrElse
-            k = Keys.Return Then
-
+        If ModifierKeys = Keys.None AndAlso k = Keys.Escape OrElse k = Keys.Return Then
             e.Handled = True
         End If
     End Sub
@@ -1033,6 +1055,10 @@ Public Class MainForm
         SetShortcutKeyDisplayString(miPriorityLow, "Ctrl+3")
         SetShortcutKeyDisplayString(miHide, "ESC")
         SetShortcutKeyDisplayString(miExit, "Alt+F4")
+        SetShortcutKeyDisplayString(miMoveWindowLeft, "Ctrl+Shift+Left")
+        SetShortcutKeyDisplayString(miMoveWindowRight, "Ctrl+Shift+Right")
+        SetShortcutKeyDisplayString(miMoveWindowTop, "Ctrl+Shift+Top")
+        SetShortcutKeyDisplayString(miMoveWindowBottom, "Ctrl+Shift+Bottom")
     End Sub
 
     Protected Overrides Sub OnLoad(e As EventArgs)
@@ -1130,6 +1156,11 @@ Public Class MainForm
     Sub miSearch_Click(sender As Object, e As EventArgs) Handles miSearch.Click
         ActiveControl = tbName
         tbName.SelectAll()
+    End Sub
+
+    Sub miAbout_Click(sender As Object, e As EventArgs) Handles miAbout.Click
+        Msg(Application.ProductName + " " + Application.ProductVersion.ToString + BR2 +
+            "Copyright (C) 2005-2020 Frank Skare (stax76)" + BR2 + "MIT License")
     End Sub
 
     <DllImport("gdi32.dll")>
