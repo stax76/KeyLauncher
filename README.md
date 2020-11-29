@@ -105,7 +105,7 @@ https://support.microsoft.com/de-ch/help/192806/how-to-run-control-panel-tools-b
 Examples
 --------
 
-Some of my content in anonymized form:
+Some of my catalog in anonymized form:
 
 Amazon  
 https://www.amazon.com
