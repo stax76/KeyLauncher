@@ -21,7 +21,7 @@ Description
 
 Currently, hard-coded are theme colors and the shortcut to show KeyLauncher (Alt+Space), making this customizable settings depends on how successful KeyLauncher will be.
 
-Unlike popular Launchers such as Wox launcher KeyLauncher does not search the system or anywhere else, it only uses items that were manually created within the application, the advantage of this approach is efficiency, cleanness and predictably.
+Unlike popular Launchers such as Wox launcher KeyLauncher does not search the system or anywhere else, it only uses items that were manually created within the application, the advantage of this approach is efficiency, cleanness and predictability.
 
 After an extensive examination I came to the conclusion that classical launchers like the Windows start menu, Wox launcher and Ueli (Electron based resource hog) have too many shortcomings and simply too often don't work very well. But nothing speaks against using them side by side with KeyLauncher, I still have them installed and running in the background.
 
