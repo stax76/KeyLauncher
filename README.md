@@ -25,7 +25,7 @@ Unlike popular Launchers such as Wox launcher KeyLauncher does not search the sy
 
 After an extensive examination I came to the conclusion that classical launchers like the Windows start menu, [Wox Launcher](http://www.wox.one) and [Ueli](https://ueli.app) (Electron based resource hog) have too many shortcomings and simply too often don't work very well. But nothing speaks against using them side by side with KeyLauncher, I still have them installed and running in the background.
 
-I search bookmarks within Chrome and do calculations in PowerShell using Windows Terminal and for Everything a have an own frontend, so I don't need a poor Launcher for this kind tasks.
+I search bookmarks within Chrome and do calculations with PowerShell using Windows Terminal and for Everything a have an own frontend, so I don't need a poor Launcher for this kind tasks.
 
 For larger bits of information a classical note taking app like Notion or Google Keep should rather be used.
 
