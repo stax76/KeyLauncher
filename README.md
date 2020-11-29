@@ -19,11 +19,11 @@ Main Features
 Description
 -----------
 
-Currently hardcoded are theme colors and the shortcut to show KeyLauncher (Alt+Space), making this customizable settings depends on how successful KeyLauncher will be.
+Currently, hard-coded are theme colors and the shortcut to show KeyLauncher (Alt+Space), making this customizable settings depends on how successful KeyLauncher will be.
 
-Unlike popular Launchers such as Wox launcher KeyLauncher does not search the system or anywhere else, it only uses items that were manually created within the application, the advantage of this approach is efficiency, cleanness and predictabily.
+Unlike popular Launchers such as Wox launcher KeyLauncher does not search the system or anywhere else, it only uses items that were manually created within the application, the advantage of this approach is efficiency, cleanness and predictably.
 
-After a extensive examination I came to the conclusion that classical launchers like the Windows start menu, Wox launcher and Ueli (Electron based resource hog) have too many shortcommings and simply too often don't work very well. But nothing speaks against using them side by side with KeyLaucher, I still have them installed and running in the backgound.
+After an extensive examination I came to the conclusion that classical launchers like the Windows start menu, Wox launcher and Ueli (Electron based resource hog) have too many shortcomings and simply too often don't work very well. But nothing speaks against using them side by side with KeyLauncher, I still have them installed and running in the background.
 
 I search bookmarks within Chrome and do calculations in PowerShell using Windows Terminal and for Everything a have an own frontend, so I don't need a poor Launcher for this kind tasks.
 
@@ -31,7 +31,7 @@ For larger bits of information a classical note taking app like Notion or Google
 
 For private and account information I recommend BitWarden.
 
-It makes sense to do everything exclusivly with KeyLauncher and give up the Windows start menu entirely. It takes time to build a complete catalog but it's worth the effort.
+It makes sense to do everything exclusively with KeyLauncher and give up the Windows start menu entirely. It takes time to build a complete catalog but it's worth the effort.
 
 For apps the Shift key can be pressed to start with admin rights.
 
@@ -48,7 +48,7 @@ Files and folders can be added via drag & drop.
 
 The list on the left side has a context menu showing most of the features and their shortcuts.
 
-KeyLauncher analyzes the content, if it detects that the content is launchable then it will lauch it (using shell execute), otherwise copy it to the clipboard.
+KeyLauncher analyzes the content, if it detects that the content is launchable then it will launch it (using shell-execute), otherwise copy it to the clipboard.
 
 Pressing enter starts the launch process.
 
@@ -56,7 +56,7 @@ Pressing enter starts the launch process.
 Search Priority
 ---------------
 
-Search is performed in following order:
+Search is performed in the following order:
 
 1. Search multiple keywords in name
 2. Search multiple keywords in content
@@ -65,7 +65,7 @@ Search is performed in following order:
 5. Search in name 
 6. Search in content
 
-Furthermore items can be setup to have low, medium or high priority in order tweak the find order, this functionality can be found in the context menu of the item list on the left side.
+Furthermore, items can be setup to have low, medium or high priority in order to tweak the find order, this functionality can be found in the context menu of the item list on the left side.
 
 
 Download
@@ -83,11 +83,11 @@ https://github.com/stax76/KeyLauncher/issues
 History
 -------
 
-I've developped this application 15 years ago and in addition to launching apps I also always had my passwords and notes saved in it.
+I've developed this application 15 years ago and in addition to launching apps I also always had my passwords and notes saved in it.
 
 Recently I decided to move my passwords and private information to BitWarden and my notes to Google Keep.
 
-Finally after 15 years I decided to release it as open source project and hope more people find it as useful as I do.
+Finally, after 15 years I decided to release it as open source project and hope more people find it useful.
 
 
 Links
