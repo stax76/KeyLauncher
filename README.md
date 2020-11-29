@@ -25,13 +25,13 @@ Unlike popular Launchers such as Wox launcher KeyLauncher does not search the sy
 
 After an extensive examination I came to the conclusion that classical launchers like the Windows start menu, [Wox Launcher](http://www.wox.one) and [Ueli](https://ueli.app) (Electron based resource hog) have too many shortcomings and simply too often don't work very well. But nothing speaks against using them side by side with KeyLauncher, I still have them installed and running in the background.
 
-I search bookmarks within Chrome and do calculations with PowerShell using Windows Terminal and for Everything a have an own frontend, so I don't need a poor Launcher for this kind tasks.
+I search bookmarks within Chrome and do calculations with PowerShell using Windows Terminal and for [Everything](https://www.voidtools.com) a have an [own frontend](https://github.com/stax76/Everything-Frontend), so I don't need a poor Launcher for this kind tasks.
 
-For larger bits of information a classical note taking app like Notion or Google Keep should rather be used.
+For larger bits of information a classical note taking app like [Notion](https://www.notion.so) or [Google Keep](https://keep.google.com) should rather be used.
 
-For private and account information I recommend BitWarden.
+For private and account information I recommend [BitWarden](https://bitwarden.com).
 
-It makes sense to do everything exclusively with KeyLauncher and give up the Windows start menu entirely. It takes time to build a complete catalog but it's worth the effort.
+In the past I was using a mix of KeyLauncher and the Windows start menu but now I start apps and tools exclusivly with KeyLauncher and feel more productive with it. It takes time to build a solid catalog but it's worth the effort.
 
 For apps the Shift key can be pressed to start with admin rights.
 
@@ -39,12 +39,12 @@ For files the Ctrl key can be pressed to open the folder in File Explorer.
 
 The logic to detect if the content is launchable is:
 
-must be single line
-contains `.exe` or `:\`
-or starts with `shell:` or `http` or `ms-settings`
+must be single line  
+contains `.exe` or `:\`  
+or starts with `shell:` or `http` or `ms-settings`  
 or ends with `.msc`
 
-Files and folders can be added via drag & drop.
+Files, file links and folders can be added via drag & drop.
 
 The list on the left side has a context menu showing most of the features and their shortcuts.
 
@@ -58,8 +58,8 @@ Search Priority
 
 Search is performed in the following order:
 
-1. Search multiple keywords in name
-2. Search multiple keywords in content
+1. Search multiple space separated keywords in name
+2. Search multiple space separated keywords in content
 3. Search uppercase characters, ff does find FireFox
 4. Search at the start of the name
 5. Search in name 
@@ -87,7 +87,7 @@ I've developed this application 15 years ago and in addition to launching apps I
 
 Recently I decided to move my passwords and private information to BitWarden and my notes to Google Keep.
 
-Finally, after 15 years I decided to release it as open source project and hope more people find it useful.
+Finally, after 15 years I decided to release it as an open source project and hope more people find it useful.
 
 
 Links
