@@ -3,6 +3,7 @@ Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
 Imports System.Threading
+
 Imports VB6 = Microsoft.VisualBasic
 
 Public Class MainForm
@@ -95,7 +96,7 @@ Public Class MainForm
         Me.tbName.Location = New System.Drawing.Point(0, 0)
         Me.tbName.Margin = New System.Windows.Forms.Padding(0)
         Me.tbName.Name = "tbName"
-        Me.tbName.Size = New System.Drawing.Size(1913, 57)
+        Me.tbName.Size = New System.Drawing.Size(711, 57)
         Me.tbName.TabIndex = 0
         '
         'tlpMain
@@ -113,7 +114,7 @@ Public Class MainForm
         Me.tlpMain.RowCount = 2
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpMain.Size = New System.Drawing.Size(1923, 936)
+        Me.tlpMain.Size = New System.Drawing.Size(721, 305)
         Me.tlpMain.TabIndex = 3
         '
         'tlpName
@@ -132,7 +133,7 @@ Public Class MainForm
         Me.tlpName.Name = "tlpName"
         Me.tlpName.RowCount = 1
         Me.tlpName.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlpName.Size = New System.Drawing.Size(1913, 57)
+        Me.tlpName.Size = New System.Drawing.Size(711, 57)
         Me.tlpName.TabIndex = 3
         '
         'tlpItems
@@ -148,11 +149,14 @@ Public Class MainForm
         Me.tlpItems.Name = "tlpItems"
         Me.tlpItems.RowCount = 1
         Me.tlpItems.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpItems.Size = New System.Drawing.Size(644, 859)
+        Me.tlpItems.Size = New System.Drawing.Size(235, 228)
         Me.tlpItems.TabIndex = 4
         '
         'lbItems
         '
+        Me.lbItems.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lbItems.ContextMenuStrip = Me.cmsLB
         Me.lbItems.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
@@ -163,7 +167,7 @@ Public Class MainForm
         Me.lbItems.Margin = New System.Windows.Forms.Padding(0)
         Me.lbItems.Name = "lbItems"
         Me.lbItems.SelectionColor = System.Drawing.Color.Empty
-        Me.lbItems.Size = New System.Drawing.Size(634, 818)
+        Me.lbItems.Size = New System.Drawing.Size(235, 228)
         Me.lbItems.TabIndex = 1
         '
         'cmsLB
@@ -171,14 +175,14 @@ Public Class MainForm
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
         Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(421, 729)
+        Me.cmsLB.Size = New System.Drawing.Size(289, 674)
         '
         'miNew
         '
         Me.miNew.Action = Nothing
         Me.miNew.Name = "miNew"
         Me.miNew.ShortcutKeyDisplayString = ""
-        Me.miNew.Size = New System.Drawing.Size(420, 67)
+        Me.miNew.Size = New System.Drawing.Size(288, 67)
         Me.miNew.Text = "New"
         '
         'miRename
@@ -186,21 +190,21 @@ Public Class MainForm
         Me.miRename.Action = Nothing
         Me.miRename.Name = "miRename"
         Me.miRename.ShortcutKeyDisplayString = ""
-        Me.miRename.Size = New System.Drawing.Size(420, 67)
+        Me.miRename.Size = New System.Drawing.Size(288, 67)
         Me.miRename.Text = "Rename      "
         '
         'miEdit
         '
         Me.miEdit.Action = Nothing
         Me.miEdit.Name = "miEdit"
-        Me.miEdit.Size = New System.Drawing.Size(420, 67)
+        Me.miEdit.Size = New System.Drawing.Size(288, 67)
         Me.miEdit.Text = "Edit"
         '
         'miSearch
         '
         Me.miSearch.Action = Nothing
         Me.miSearch.Name = "miSearch"
-        Me.miSearch.Size = New System.Drawing.Size(420, 67)
+        Me.miSearch.Size = New System.Drawing.Size(288, 67)
         Me.miSearch.Text = "Search"
         '
         'miDelete
@@ -208,7 +212,7 @@ Public Class MainForm
         Me.miDelete.Action = Nothing
         Me.miDelete.Name = "miDelete"
         Me.miDelete.ShortcutKeyDisplayString = ""
-        Me.miDelete.Size = New System.Drawing.Size(420, 67)
+        Me.miDelete.Size = New System.Drawing.Size(288, 67)
         Me.miDelete.Text = "Delete"
         '
         'miPriority
@@ -216,7 +220,7 @@ Public Class MainForm
         Me.miPriority.Action = Nothing
         Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow})
         Me.miPriority.Name = "miPriority"
-        Me.miPriority.Size = New System.Drawing.Size(420, 67)
+        Me.miPriority.Size = New System.Drawing.Size(288, 67)
         Me.miPriority.Text = "Priority"
         '
         'miPriorityHigh
@@ -245,7 +249,7 @@ Public Class MainForm
         Me.miAdvanced.Action = Nothing
         Me.miAdvanced.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSearchAndReplace, Me.miShowAll, Me.ToolStripMenuItem1, Me.miMoveWindowLeft, Me.miMoveWindowRight, Me.miMoveWindowTop, Me.miMoveWindowBottom})
         Me.miAdvanced.Name = "miAdvanced"
-        Me.miAdvanced.Size = New System.Drawing.Size(420, 67)
+        Me.miAdvanced.Size = New System.Drawing.Size(288, 67)
         Me.miAdvanced.Text = "Advanced"
         '
         'miSearchAndReplace
@@ -300,20 +304,21 @@ Public Class MainForm
         '
         Me.miHide.Action = Nothing
         Me.miHide.Name = "miHide"
-        Me.miHide.Size = New System.Drawing.Size(420, 67)
+        Me.miHide.Size = New System.Drawing.Size(288, 67)
         Me.miHide.Text = "Hide"
         '
         'miAbout
         '
+        Me.miAbout.Action = Nothing
         Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(420, 56)
+        Me.miAbout.Size = New System.Drawing.Size(288, 67)
         Me.miAbout.Text = "About"
         '
         'miExit
         '
         Me.miExit.Action = Nothing
         Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(420, 67)
+        Me.miExit.Size = New System.Drawing.Size(288, 67)
         Me.miExit.Text = "Exit"
         '
         'tlpRTB
@@ -324,16 +329,19 @@ Public Class MainForm
         Me.tlpRTB.ColumnCount = 1
         Me.tlpRTB.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tlpRTB.Controls.Add(Me.rtb, 0, 0)
-        Me.tlpRTB.Location = New System.Drawing.Point(659, 72)
+        Me.tlpRTB.Location = New System.Drawing.Point(250, 72)
         Me.tlpRTB.Margin = New System.Windows.Forms.Padding(5)
         Me.tlpRTB.Name = "tlpRTB"
         Me.tlpRTB.RowCount = 1
         Me.tlpRTB.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpRTB.Size = New System.Drawing.Size(1259, 859)
+        Me.tlpRTB.Size = New System.Drawing.Size(466, 228)
         Me.tlpRTB.TabIndex = 5
         '
         'rtb
         '
+        Me.rtb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtb.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtb.ContextMenuStrip = Me.cmsRTB
         Me.rtb.EnableAutoDragDrop = True
@@ -341,7 +349,7 @@ Public Class MainForm
         Me.rtb.Margin = New System.Windows.Forms.Padding(0)
         Me.rtb.Name = "rtb"
         Me.rtb.ReadOnly = True
-        Me.rtb.Size = New System.Drawing.Size(1257, 818)
+        Me.rtb.Size = New System.Drawing.Size(466, 228)
         Me.rtb.TabIndex = 2
         Me.rtb.Text = ""
         '
@@ -378,7 +386,7 @@ Public Class MainForm
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(288.0!, 288.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.ClientSize = New System.Drawing.Size(1923, 936)
+        Me.ClientSize = New System.Drawing.Size(721, 305)
         Me.Controls.Add(Me.tlpMain)
         Me.Font = New System.Drawing.Font("Consolas", 9.857143!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -418,6 +426,8 @@ Public Class MainForm
             AddHandler Application.ThreadException, AddressOf ApplicationThreadException
             tlpName.Height = FontHeight * 2
             lbItems.ItemHeight = CInt(FontHeight * 1.4)
+            Width = FontHeight * 40
+            Height = FontHeight * 20
 
             Const MOD_ALT = &H1
 
@@ -603,11 +613,12 @@ Public Class MainForm
 
         If name <> "" Then
             Dim value = If(filePath.Contains(" "), """" & filePath & """", filePath)
-            Items.Add(New Item(name, value))
-
-            ActiveControl = tbName
+            Dim item = New Item(name, value)
+            Items.Add(item)
             tbName.Text = name
             tbName.SelectAll()
+            lbItems.SelectedItem = item
+            ActiveControl = tbName
         End If
     End Sub
 
