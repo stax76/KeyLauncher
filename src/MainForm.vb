@@ -427,7 +427,7 @@ Public Class MainForm
             tlpName.Height = FontHeight * 2
             lbItems.ItemHeight = CInt(FontHeight * 1.4)
             Width = FontHeight * 40
-            Height = FontHeight * 20
+            Height = FontHeight * 18
 
             Const MOD_ALT = &H1
 
