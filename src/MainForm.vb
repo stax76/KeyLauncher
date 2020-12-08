@@ -667,48 +667,6 @@ Public Class MainForm
         End If
     End Sub
 
-    Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        Dim workingArea = Screen.FromControl(Me).WorkingArea
-
-        Select Case e.KeyData
-            Case Keys.F2
-                RenameSelectedItem()
-            Case Keys.F4
-                If rtb.ReadOnly AndAlso lbItems.SelectedIndex > -1 Then
-                    EnableEditMode()
-                    ActiveControl = rtb
-                Else
-                    DisableEditMode()
-                End If
-            Case Keys.F6
-                ActiveControl = tbName
-            Case Keys.Escape
-                HideForm()
-            Case Keys.Control Or Keys.N
-                AddNew()
-            Case Keys.Control Or Keys.Delete
-                DeleteSelectedItem()
-            Case Keys.Control Or Keys.H, Keys.Control Or Keys.R
-                SearchAndReplace()
-            Case Keys.Control Or Keys.Shift Or Keys.Left
-                Left = 0
-            Case Keys.Control Or Keys.Shift Or Keys.Right
-                Left = workingArea.Width - Width
-            Case Keys.Control Or Keys.Shift Or Keys.Up
-                Top = 0
-            Case Keys.Control Or Keys.Shift Or Keys.Down
-                Top = workingArea.Height - Height
-            Case Keys.Control Or Keys.Shift Or Keys.A
-                miShowAll.PerformClick()
-            Case Keys.Control Or Keys.D1, Keys.Control Or Keys.NumPad1
-                miPriorityHigh.PerformClick()
-            Case Keys.Control Or Keys.D2, Keys.Control Or Keys.NumPad2
-                miPriorityMedium.PerformClick()
-            Case Keys.Control Or Keys.D3, Keys.Control Or Keys.NumPad3
-                miPriorityLow.PerformClick()
-        End Select
-    End Sub
-
     Sub SearchAndReplace()
         Using form As New ReplaceForm
             If form.ShowDialog(Me) = DialogResult.OK Then
@@ -763,32 +721,81 @@ Public Class MainForm
         Activate()
     End Sub
 
+    Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Dim workingArea = Screen.FromControl(Me).WorkingArea
+
+        Select Case e.KeyData
+            Case Keys.F2
+                RenameSelectedItem()
+            Case Keys.F4
+                If rtb.ReadOnly AndAlso lbItems.SelectedIndex > -1 Then
+                    EnableEditMode()
+                    ActiveControl = rtb
+                Else
+                    DisableEditMode()
+                End If
+            Case Keys.F6
+                ActiveControl = tbName
+            Case Keys.Escape
+                SupressAnnoyingSound = True
+                HideForm()
+            Case Keys.Control Or Keys.N
+                AddNew()
+            Case Keys.Control Or Keys.Delete
+                DeleteSelectedItem()
+            Case Keys.Control Or Keys.H, Keys.Control Or Keys.R
+                SearchAndReplace()
+            Case Keys.Control Or Keys.Shift Or Keys.Left
+                Left = 0
+            Case Keys.Control Or Keys.Shift Or Keys.Right
+                Left = workingArea.Width - Width
+            Case Keys.Control Or Keys.Shift Or Keys.Up
+                Top = 0
+            Case Keys.Control Or Keys.Shift Or Keys.Down
+                Top = workingArea.Height - Height
+            Case Keys.Control Or Keys.Shift Or Keys.A
+                miShowAll.PerformClick()
+            Case Keys.Control Or Keys.D1, Keys.Control Or Keys.NumPad1
+                miPriorityHigh.PerformClick()
+            Case Keys.Control Or Keys.D2, Keys.Control Or Keys.NumPad2
+                miPriorityMedium.PerformClick()
+            Case Keys.Control Or Keys.D3, Keys.Control Or Keys.NumPad3
+                miPriorityLow.PerformClick()
+        End Select
+    End Sub
+
     Sub tbName_Enter(sender As Object, e As EventArgs) Handles tbName.Enter
         tbName.SelectAll()
     End Sub
 
     Sub tbName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbName.KeyPress
-        Dim k = CType(Convert.ToInt32(e.KeyChar), Keys)
-
-        If ModifierKeys = Keys.None AndAlso k = Keys.Escape OrElse k = Keys.Return Then
+        If SupressAnnoyingSound Then
             e.Handled = True
+            SupressAnnoyingSound = False
         End If
     End Sub
+
+    Private SupressAnnoyingSound As Boolean
 
     Sub tbName_KeyDown(sender As Object, e As KeyEventArgs) Handles tbName.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
                 e.Handled = True
+                SupressAnnoyingSound = True
                 Launch(False, False)
             Case Keys.Control Or Keys.Enter
                 e.Handled = True
+                SupressAnnoyingSound = True
                 Launch(False, True)
             Case Keys.Shift Or Keys.Enter
                 e.Handled = True
                 Launch(True, False)
             Case Keys.Up
                 e.Handled = True
-                If lbItems.SelectedIndex > 0 Then lbItems.SelectedIndex -= 1
+
+                If lbItems.SelectedIndex > 0 Then
+                    lbItems.SelectedIndex -= 1
+                End If
             Case Keys.Down
                 e.Handled = True
 
@@ -796,7 +803,9 @@ Public Class MainForm
                     lbItems.SelectedIndex += 1
                 End If
             Case Keys.PageUp
-                If lbItems.Items.Count > 0 Then lbItems.SelectedIndex = 0
+                If lbItems.Items.Count > 0 Then
+                    lbItems.SelectedIndex = 0
+                End If
             Case Keys.PageDown
                 If lbItems.Items.Count > 0 Then
                     lbItems.SelectedIndex = lbItems.Items.Count - 1

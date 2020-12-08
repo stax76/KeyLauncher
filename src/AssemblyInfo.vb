@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: ComVisible(False)> 
 
-<Assembly: Guid("824d297b-1b7c-489f-965b-ab6903a87dd4")> 
+<Assembly: Guid("824d297b-1b7c-489f-965b-ab6903a87dd4")>
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.1.0.0")>
+<Assembly: AssemblyFileVersion("1.1.0.0")>

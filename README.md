@@ -194,7 +194,7 @@ C:\MyFiles\Software\Multimedia\IrfanView\i_view64.exe
 JDownloader  
 "C:\Users\JonDoe\AppData\Local\JDownloader 2.0\JDownloader2.exe"
 
-Kalender  
+Calender  
 https://calendar.google.com/calendar/r?tab=wc
 
 Keep  
