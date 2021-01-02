@@ -34,31 +34,6 @@ Module StringExtensions
         Return value.Split(delimiters, StringSplitOptions.None)
     End Function
 
-    <Extension()>
-    Function FormatColumn(value As String, delimiter As String,
-                          Optional padBehindDelimiter As Boolean = False) As String
-
-        Dim positions As New List(Of Integer)
-        Dim lines = value.SplitKeepEmpty(BR)
-        Dim modeOffset = If(padBehindDelimiter, delimiter.Length, 0)
-
-        For Each i In lines
-            positions.Add(i.IndexOf(delimiter))
-        Next
-
-        If positions.Count > 0 Then
-            Dim highest = Aggregate i In positions Into Max(i)
-
-            For i = 0 To lines.Length - 1
-                If positions(i) <> highest AndAlso positions(i) > -1 Then
-                    lines(i) = lines(i).Insert(positions(i) + modeOffset, " ".PadRight(highest - positions(i)))
-                End If
-            Next
-        End If
-
-        Return lines.Join(BR)
-    End Function
-
     <Extension>
     Function Multiply(instance As String, multiplier As Integer) As String
         If multiplier < 1 Then

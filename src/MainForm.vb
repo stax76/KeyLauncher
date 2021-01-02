@@ -43,6 +43,10 @@ Public Class MainForm
     Friend WithEvents miMoveWindowTop As MenuItem
     Friend WithEvents miMoveWindowBottom As MenuItem
     Friend WithEvents miAbout As MenuItem
+    Friend WithEvents miAction As MenuItem
+    Friend WithEvents miCommandLineAction As MenuItem
+    Friend WithEvents miPasteAction As MenuItem
+    Friend WithEvents miNoneAction As MenuItem
     Private components As IContainer
 
     Sub InitializeComponent()
@@ -62,6 +66,10 @@ Public Class MainForm
         Me.miPriorityHigh = New MenuItem()
         Me.miPriorityMedium = New MenuItem()
         Me.miPriorityLow = New MenuItem()
+        Me.miAction = New MenuItem()
+        Me.miCommandLineAction = New MenuItem()
+        Me.miPasteAction = New MenuItem()
+        Me.miNoneAction = New MenuItem()
         Me.miAdvanced = New MenuItem()
         Me.miSearchAndReplace = New MenuItem()
         Me.miShowAll = New MenuItem()
@@ -169,20 +177,21 @@ Public Class MainForm
         Me.lbItems.SelectionColor = System.Drawing.Color.Empty
         Me.lbItems.Size = New System.Drawing.Size(235, 228)
         Me.lbItems.TabIndex = 1
+        Me.lbItems.TabStop = False
         '
         'cmsLB
         '
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
-        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
+        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(289, 674)
+        Me.cmsLB.Size = New System.Drawing.Size(421, 796)
         '
         'miNew
         '
         Me.miNew.Action = Nothing
         Me.miNew.Name = "miNew"
         Me.miNew.ShortcutKeyDisplayString = ""
-        Me.miNew.Size = New System.Drawing.Size(288, 67)
+        Me.miNew.Size = New System.Drawing.Size(420, 67)
         Me.miNew.Text = "New"
         '
         'miRename
@@ -190,21 +199,21 @@ Public Class MainForm
         Me.miRename.Action = Nothing
         Me.miRename.Name = "miRename"
         Me.miRename.ShortcutKeyDisplayString = ""
-        Me.miRename.Size = New System.Drawing.Size(288, 67)
+        Me.miRename.Size = New System.Drawing.Size(420, 67)
         Me.miRename.Text = "Rename      "
         '
         'miEdit
         '
         Me.miEdit.Action = Nothing
         Me.miEdit.Name = "miEdit"
-        Me.miEdit.Size = New System.Drawing.Size(288, 67)
+        Me.miEdit.Size = New System.Drawing.Size(420, 67)
         Me.miEdit.Text = "Edit"
         '
         'miSearch
         '
         Me.miSearch.Action = Nothing
         Me.miSearch.Name = "miSearch"
-        Me.miSearch.Size = New System.Drawing.Size(288, 67)
+        Me.miSearch.Size = New System.Drawing.Size(420, 67)
         Me.miSearch.Text = "Search"
         '
         'miDelete
@@ -212,7 +221,7 @@ Public Class MainForm
         Me.miDelete.Action = Nothing
         Me.miDelete.Name = "miDelete"
         Me.miDelete.ShortcutKeyDisplayString = ""
-        Me.miDelete.Size = New System.Drawing.Size(288, 67)
+        Me.miDelete.Size = New System.Drawing.Size(420, 67)
         Me.miDelete.Text = "Delete"
         '
         'miPriority
@@ -220,7 +229,7 @@ Public Class MainForm
         Me.miPriority.Action = Nothing
         Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow})
         Me.miPriority.Name = "miPriority"
-        Me.miPriority.Size = New System.Drawing.Size(288, 67)
+        Me.miPriority.Size = New System.Drawing.Size(420, 67)
         Me.miPriority.Text = "Priority"
         '
         'miPriorityHigh
@@ -244,12 +253,37 @@ Public Class MainForm
         Me.miPriorityLow.Size = New System.Drawing.Size(350, 67)
         Me.miPriorityLow.Text = "Low"
         '
+        'miAction
+        '
+        Me.miAction.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCommandLineAction, Me.miPasteAction, Me.miNoneAction})
+        Me.miAction.Name = "miAction"
+        Me.miAction.Size = New System.Drawing.Size(420, 56)
+        Me.miAction.Text = "Action"
+        '
+        'miCommandLineAction
+        '
+        Me.miCommandLineAction.Name = "miCommandLineAction"
+        Me.miCommandLineAction.Size = New System.Drawing.Size(538, 66)
+        Me.miCommandLineAction.Text = "CommandLine"
+        '
+        'miPasteAction
+        '
+        Me.miPasteAction.Name = "miPasteAction"
+        Me.miPasteAction.Size = New System.Drawing.Size(538, 66)
+        Me.miPasteAction.Text = "Paste"
+        '
+        'miNoneAction
+        '
+        Me.miNoneAction.Name = "miNoneAction"
+        Me.miNoneAction.Size = New System.Drawing.Size(538, 66)
+        Me.miNoneAction.Text = "None"
+        '
         'miAdvanced
         '
         Me.miAdvanced.Action = Nothing
         Me.miAdvanced.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSearchAndReplace, Me.miShowAll, Me.ToolStripMenuItem1, Me.miMoveWindowLeft, Me.miMoveWindowRight, Me.miMoveWindowTop, Me.miMoveWindowBottom})
         Me.miAdvanced.Name = "miAdvanced"
-        Me.miAdvanced.Size = New System.Drawing.Size(288, 67)
+        Me.miAdvanced.Size = New System.Drawing.Size(420, 67)
         Me.miAdvanced.Text = "Advanced"
         '
         'miSearchAndReplace
@@ -304,21 +338,21 @@ Public Class MainForm
         '
         Me.miHide.Action = Nothing
         Me.miHide.Name = "miHide"
-        Me.miHide.Size = New System.Drawing.Size(288, 67)
+        Me.miHide.Size = New System.Drawing.Size(420, 67)
         Me.miHide.Text = "Hide"
         '
         'miAbout
         '
         Me.miAbout.Action = Nothing
         Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(288, 67)
+        Me.miAbout.Size = New System.Drawing.Size(420, 67)
         Me.miAbout.Text = "About"
         '
         'miExit
         '
         Me.miExit.Action = Nothing
         Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(288, 67)
+        Me.miExit.Size = New System.Drawing.Size(420, 67)
         Me.miExit.Text = "Exit"
         '
         'tlpRTB
@@ -418,6 +452,7 @@ Public Class MainForm
     Private TextBackColor As Color
     Private TextForeColor As Color
     Private DPI As Integer
+    Private LastSearch As String
 
     Public Sub New()
         Try
@@ -508,14 +543,17 @@ Public Class MainForm
             Dim item = DirectCast(lbItems.SelectedItem, Item)
             Dim value = item.Value.Trim
 
-            If Not value.Contains(BR) AndAlso
-                  (value.Contains(".exe") OrElse
-                   value.Contains(":\") OrElse
-                   value.StartsWith("shell:") OrElse
-                   value.StartsWith("http") OrElse
-                   value.StartsWith("ms-settings:") OrElse
-                   value.EndsWith(".msc")) Then
+            If item.ActionMode = ActionMode.Paste Then
+                HideForm()
+                Dim clipCurrent = Clipboard.GetText
+                Clipboard.SetText(value)
+                SendKeys.SendWait("^v")
+                Thread.Sleep(1000)
 
+                If clipCurrent <> "" Then
+                    Clipboard.SetText(clipCurrent)
+                End If
+            ElseIf item.ActionMode = ActionMode.CommandLine Then
                 Try
                     HideForm()
                     Dim match = Regex.Match(value, "((?<file>[^\s""]+)|""(?<file>.+?)"") *(?<args>[^\f\r]*)")
@@ -543,33 +581,6 @@ Public Class MainForm
                     tbName.Text = item.Name
                     tbName.SelectAll()
                 End Try
-            Else
-                HideForm()
-                value = item.Value
-
-                Do
-                    Dim match = Regex.Match(value, "<%(.+?)%>")
-
-                    If match.Success Then
-                        Dim macro = match.Groups(1).Value
-                        Dim ret = InputBox(macro & "?")
-
-                        If ret = "" Then
-                            Return
-                        End If
-
-                        value = value.Replace("<%" & macro & "%>", ret)
-                    Else
-                        Exit Do
-                    End If
-                Loop
-
-                Dim clipCurrent = Clipboard.GetText
-                Clipboard.SetText(value)
-                SendKeys.SendWait("^v")
-                Thread.Sleep(1000)
-
-                If clipCurrent <> "" Then Clipboard.SetText(clipCurrent)
             End If
         End If
     End Sub
@@ -737,7 +748,13 @@ Public Class MainForm
             Case Keys.F6
                 ActiveControl = tbName
             Case Keys.Escape
+                LastSearch = tbName.Text
                 SupressAnnoyingSound = True
+                HideForm()
+            Case Keys.Alt Or Keys.Enter
+                e.Handled = True
+                SupressAnnoyingSound = True
+                Clipboard.SetText(rtb.Text)
                 HideForm()
             Case Keys.Control Or Keys.N
                 AddNew()
@@ -791,10 +808,14 @@ Public Class MainForm
                 e.Handled = True
                 Launch(True, False)
             Case Keys.Up
-                e.Handled = True
+                If tbName.Text = "" Then
+                    tbName.Text = LastSearch
+                Else
+                    e.Handled = True
 
-                If lbItems.SelectedIndex > 0 Then
-                    lbItems.SelectedIndex -= 1
+                    If lbItems.SelectedIndex > 0 Then
+                        lbItems.SelectedIndex -= 1
+                    End If
                 End If
             Case Keys.Down
                 e.Handled = True
@@ -1004,7 +1025,10 @@ Public Class MainForm
     Sub rtb_TextChanged(sender As Object, e As EventArgs) Handles rtb.TextChanged
         If Not BlockTextChanged Then
             Dim i = TryCast(lbItems.SelectedItem, Item)
-            If i IsNot Nothing AndAlso i.Value <> rtb.Text Then i.Value = rtb.Text
+
+            If i IsNot Nothing AndAlso i.Value <> rtb.Text Then
+                i.Value = rtb.Text
+            End If
         End If
     End Sub
 
@@ -1062,6 +1086,10 @@ Public Class MainForm
             miPriorityLow.Checked = item.Priority = Priority.Low
             miPriorityMedium.Checked = item.Priority = Priority.Medium
             miPriorityHigh.Checked = item.Priority = Priority.High
+
+            miNoneAction.Checked = item.ActionMode = ActionMode.None
+            miCommandLineAction.Checked = item.ActionMode = ActionMode.CommandLine
+            miPasteAction.Checked = item.ActionMode = ActionMode.Paste
         End If
 
         SetShortcutKeyDisplayString(miNew, "Ctrl+N")
@@ -1079,6 +1107,9 @@ Public Class MainForm
         SetShortcutKeyDisplayString(miMoveWindowRight, "Ctrl+Shift+Right")
         SetShortcutKeyDisplayString(miMoveWindowTop, "Ctrl+Shift+Top")
         SetShortcutKeyDisplayString(miMoveWindowBottom, "Ctrl+Shift+Bottom")
+        SetShortcutKeyDisplayString(miNoneAction, "Ctrl+Shift+N")
+        SetShortcutKeyDisplayString(miPasteAction, "Ctrl+Shift+P")
+        SetShortcutKeyDisplayString(miCommandLineAction, "Ctrl+Shift+C")
     End Sub
 
     Protected Overrides Sub OnLoad(e As EventArgs)
@@ -1194,4 +1225,16 @@ Public Class MainForm
     <DllImport("user32.dll")>
     Shared Function UnregisterHotKey(hWnd As IntPtr, id As Integer) As Boolean
     End Function
+
+    Sub miCommandLineAction_Click(sender As Object, e As EventArgs) Handles miCommandLineAction.Click
+        DirectCast(lbItems.SelectedItem, Item).ActionMode = ActionMode.CommandLine
+    End Sub
+
+    Sub miPasteAction_Click(sender As Object, e As EventArgs) Handles miPasteAction.Click
+        DirectCast(lbItems.SelectedItem, Item).ActionMode = ActionMode.Paste
+    End Sub
+
+    Sub miNoneAction_Click(sender As Object, e As EventArgs) Handles miNoneAction.Click
+        DirectCast(lbItems.SelectedItem, Item).ActionMode = ActionMode.None
+    End Sub
 End Class

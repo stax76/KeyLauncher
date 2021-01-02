@@ -123,6 +123,21 @@ Public Class Item
         End Set
     End Property
 
+    Private ActionModeValue As ActionMode
+
+    <DefaultValue(ActionMode.CommandLine)>
+    Property ActionMode As ActionMode
+        Get
+            Return ActionModeValue
+        End Get
+        Set(value As ActionMode)
+            If value <> ActionModeValue Then
+                ActionModeValue = value
+                g.HasChanged = True
+            End If
+        End Set
+    End Property
+
     Function CompareTo(item As Item) As Integer Implements IComparable(Of Item).CompareTo
         Return Name.CompareTo(item.Name)
     End Function
@@ -136,4 +151,10 @@ Public Enum Priority
     Low = -1
     Medium = 0
     High = 1
+End Enum
+
+Public Enum ActionMode
+    CommandLine
+    Paste
+    None
 End Enum
