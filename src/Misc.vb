@@ -148,9 +148,15 @@ Public Class Item
 End Class
 
 Public Enum Priority
+    SuperLow = -4
+    VeryLow = -3
+    Lower = -2
     Low = -1
     Medium = 0
     High = 1
+    Higher = 2
+    VeryHigh = 3
+    SuperHigh = 4
 End Enum
 
 Public Enum ActionMode

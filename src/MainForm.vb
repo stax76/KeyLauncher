@@ -47,6 +47,12 @@ Public Class MainForm
     Friend WithEvents miCommandLineAction As MenuItem
     Friend WithEvents miPasteAction As MenuItem
     Friend WithEvents miNoneAction As MenuItem
+    Friend WithEvents miPrioritySuperHigh As MenuItem
+    Friend WithEvents miPriorityVeryHigh As MenuItem
+    Friend WithEvents miPriorityHigher As MenuItem
+    Friend WithEvents miPriorityLower As MenuItem
+    Friend WithEvents miPriorityVeryLow As MenuItem
+    Friend WithEvents miPrioritySuperLow As MenuItem
     Private components As IContainer
 
     Sub InitializeComponent()
@@ -87,6 +93,12 @@ Public Class MainForm
         Me.miCut = New MenuItem()
         Me.miCopy = New MenuItem()
         Me.miPaste = New MenuItem()
+        Me.miPriorityHigher = New MenuItem()
+        Me.miPriorityVeryHigh = New MenuItem()
+        Me.miPrioritySuperHigh = New MenuItem()
+        Me.miPriorityLower = New MenuItem()
+        Me.miPriorityVeryLow = New MenuItem()
+        Me.miPrioritySuperLow = New MenuItem()
         Me.tlpMain.SuspendLayout()
         Me.tlpName.SuspendLayout()
         Me.tlpItems.SuspendLayout()
@@ -184,7 +196,7 @@ Public Class MainForm
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
         Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(421, 796)
+        Me.cmsLB.Size = New System.Drawing.Size(421, 807)
         '
         'miNew
         '
@@ -227,7 +239,7 @@ Public Class MainForm
         'miPriority
         '
         Me.miPriority.Action = Nothing
-        Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow})
+        Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPrioritySuperHigh, Me.miPriorityVeryHigh, Me.miPriorityHigher, Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow, Me.miPriorityLower, Me.miPriorityVeryLow, Me.miPrioritySuperLow})
         Me.miPriority.Name = "miPriority"
         Me.miPriority.Size = New System.Drawing.Size(420, 67)
         Me.miPriority.Text = "Priority"
@@ -236,46 +248,50 @@ Public Class MainForm
         '
         Me.miPriorityHigh.Action = Nothing
         Me.miPriorityHigh.Name = "miPriorityHigh"
-        Me.miPriorityHigh.Size = New System.Drawing.Size(350, 67)
+        Me.miPriorityHigh.Size = New System.Drawing.Size(538, 67)
         Me.miPriorityHigh.Text = "High"
         '
         'miPriorityMedium
         '
         Me.miPriorityMedium.Action = Nothing
         Me.miPriorityMedium.Name = "miPriorityMedium"
-        Me.miPriorityMedium.Size = New System.Drawing.Size(350, 67)
+        Me.miPriorityMedium.Size = New System.Drawing.Size(538, 67)
         Me.miPriorityMedium.Text = "Medium"
         '
         'miPriorityLow
         '
         Me.miPriorityLow.Action = Nothing
         Me.miPriorityLow.Name = "miPriorityLow"
-        Me.miPriorityLow.Size = New System.Drawing.Size(350, 67)
+        Me.miPriorityLow.Size = New System.Drawing.Size(538, 67)
         Me.miPriorityLow.Text = "Low"
         '
         'miAction
         '
+        Me.miAction.Action = Nothing
         Me.miAction.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCommandLineAction, Me.miPasteAction, Me.miNoneAction})
         Me.miAction.Name = "miAction"
-        Me.miAction.Size = New System.Drawing.Size(420, 56)
+        Me.miAction.Size = New System.Drawing.Size(420, 67)
         Me.miAction.Text = "Action"
         '
         'miCommandLineAction
         '
+        Me.miCommandLineAction.Action = Nothing
         Me.miCommandLineAction.Name = "miCommandLineAction"
-        Me.miCommandLineAction.Size = New System.Drawing.Size(538, 66)
+        Me.miCommandLineAction.Size = New System.Drawing.Size(538, 67)
         Me.miCommandLineAction.Text = "CommandLine"
         '
         'miPasteAction
         '
+        Me.miPasteAction.Action = Nothing
         Me.miPasteAction.Name = "miPasteAction"
-        Me.miPasteAction.Size = New System.Drawing.Size(538, 66)
+        Me.miPasteAction.Size = New System.Drawing.Size(538, 67)
         Me.miPasteAction.Text = "Paste"
         '
         'miNoneAction
         '
+        Me.miNoneAction.Action = Nothing
         Me.miNoneAction.Name = "miNoneAction"
-        Me.miNoneAction.Size = New System.Drawing.Size(538, 66)
+        Me.miNoneAction.Size = New System.Drawing.Size(538, 67)
         Me.miNoneAction.Text = "None"
         '
         'miAdvanced
@@ -414,6 +430,42 @@ Public Class MainForm
         Me.miPaste.Name = "miPaste"
         Me.miPaste.Size = New System.Drawing.Size(281, 67)
         Me.miPaste.Text = "Paste"
+        '
+        'miPriorityHigher
+        '
+        Me.miPriorityHigher.Name = "miPriorityHigher"
+        Me.miPriorityHigher.Size = New System.Drawing.Size(538, 66)
+        Me.miPriorityHigher.Text = "Higher"
+        '
+        'miPriorityVeryHigh
+        '
+        Me.miPriorityVeryHigh.Name = "miPriorityVeryHigh"
+        Me.miPriorityVeryHigh.Size = New System.Drawing.Size(538, 66)
+        Me.miPriorityVeryHigh.Text = "Very High"
+        '
+        'miPrioritySuperHigh
+        '
+        Me.miPrioritySuperHigh.Name = "miPrioritySuperHigh"
+        Me.miPrioritySuperHigh.Size = New System.Drawing.Size(538, 66)
+        Me.miPrioritySuperHigh.Text = "Super High"
+        '
+        'miPriorityLower
+        '
+        Me.miPriorityLower.Name = "miPriorityLower"
+        Me.miPriorityLower.Size = New System.Drawing.Size(538, 66)
+        Me.miPriorityLower.Text = "Lower"
+        '
+        'miPriorityVeryLow
+        '
+        Me.miPriorityVeryLow.Name = "miPriorityVeryLow"
+        Me.miPriorityVeryLow.Size = New System.Drawing.Size(538, 66)
+        Me.miPriorityVeryLow.Text = "Very Low"
+        '
+        'miPrioritySuperLow
+        '
+        Me.miPrioritySuperLow.Name = "miPrioritySuperLow"
+        Me.miPrioritySuperLow.Size = New System.Drawing.Size(538, 66)
+        Me.miPrioritySuperLow.Text = "Super Low"
         '
         'MainForm
         '
@@ -859,7 +911,17 @@ Public Class MainForm
             Exit Sub
         End If
 
-        Dim priorities = {Priority.High, Priority.Medium, Priority.Low}
+        Dim priorities = {
+            Priority.SuperHigh,
+            Priority.VeryHigh,
+            Priority.Higher,
+            Priority.High,
+            Priority.Medium,
+            Priority.Low,
+            Priority.Lower,
+            Priority.VeryLow,
+            Priority.SuperLow
+        }
 
         For Each prio In priorities
             For Each item In Items
@@ -1083,9 +1145,15 @@ Public Class MainForm
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
         If Not item Is Nothing Then
+            miPrioritySuperLow.Checked = item.Priority = Priority.SuperLow
+            miPriorityVeryLow.Checked = item.Priority = Priority.VeryLow
+            miPriorityLower.Checked = item.Priority = Priority.Lower
             miPriorityLow.Checked = item.Priority = Priority.Low
             miPriorityMedium.Checked = item.Priority = Priority.Medium
             miPriorityHigh.Checked = item.Priority = Priority.High
+            miPriorityHigher.Checked = item.Priority = Priority.Higher
+            miPriorityVeryHigh.Checked = item.Priority = Priority.VeryHigh
+            miPrioritySuperHigh.Checked = item.Priority = Priority.SuperHigh
 
             miNoneAction.Checked = item.ActionMode = ActionMode.None
             miCommandLineAction.Checked = item.ActionMode = ActionMode.CommandLine
@@ -1151,18 +1219,6 @@ Public Class MainForm
         rtb.EnableAutoDragDrop = False
     End Sub
 
-    Sub miPriorityLow_Click(sender As Object, e As EventArgs) Handles miPriorityLow.Click
-        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Low
-    End Sub
-
-    Sub miPriorityMedium_Click(sender As Object, e As EventArgs) Handles miPriorityMedium.Click
-        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Medium
-    End Sub
-
-    Sub miPriorityHigh_Click(sender As Object, e As EventArgs) Handles miPriorityHigh.Click
-        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.High
-    End Sub
-
     Sub miNew_Click(sender As Object, e As EventArgs) Handles miNew.Click
         AddNew()
     End Sub
@@ -1170,25 +1226,23 @@ Public Class MainForm
     Sub AddNew()
         Dim itemName = InputBox("Please enter a name.", "New")
 
-        If itemName <> "" Then
-            For Each item In Items
-                If item.Name = itemName Then
-                    MessageBox.Show(Me, "There is already a item called " & itemName & ".",
+        For Each item In Items
+            If item.Name = itemName Then
+                MessageBox.Show(Me, "There is already a item called " & itemName & ".",
                                     Application.ProductName,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information)
-                    Return
-                End If
-            Next item
+                Return
+            End If
+        Next item
 
-            Items.Add(New Item(itemName, ""))
-            Items.Sort()
+        Items.Add(New Item(itemName, ""))
+        Items.Sort()
 
-            tbName.Text = itemName
-            tbName_TextChanged()
-            ActiveControl = rtb
-            EnableEditMode()
-        End If
+        tbName.Text = itemName
+        tbName_TextChanged()
+        ActiveControl = rtb
+        EnableEditMode()
     End Sub
 
     Sub miSearchAndReplace_Click(sender As Object, e As EventArgs) Handles miSearchAndReplace.Click
@@ -1236,5 +1290,41 @@ Public Class MainForm
 
     Sub miNoneAction_Click(sender As Object, e As EventArgs) Handles miNoneAction.Click
         DirectCast(lbItems.SelectedItem, Item).ActionMode = ActionMode.None
+    End Sub
+
+    Sub miPrioritySuperHigh_Click(sender As Object, e As EventArgs) Handles miPrioritySuperHigh.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.SuperHigh
+    End Sub
+
+    Sub miPriorityVeryHigh_Click(sender As Object, e As EventArgs) Handles miPriorityVeryHigh.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.VeryHigh
+    End Sub
+
+    Sub miPriorityHigher_Click(sender As Object, e As EventArgs) Handles miPriorityHigher.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Higher
+    End Sub
+
+    Sub miPriorityHigh_Click(sender As Object, e As EventArgs) Handles miPriorityHigh.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.High
+    End Sub
+
+    Sub miPriorityMedium_Click(sender As Object, e As EventArgs) Handles miPriorityMedium.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Medium
+    End Sub
+
+    Sub miPriorityLow_Click(sender As Object, e As EventArgs) Handles miPriorityLow.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Low
+    End Sub
+
+    Sub miPriorityLower_Click(sender As Object, e As EventArgs) Handles miPriorityLower.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.Lower
+    End Sub
+
+    Sub miPriorityVeryLow_Click(sender As Object, e As EventArgs) Handles miPriorityVeryLow.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.VeryLow
+    End Sub
+
+    Sub miPrioritySuperLow_Click(sender As Object, e As EventArgs) Handles miPrioritySuperLow.Click
+        DirectCast(lbItems.SelectedItem, Item).Priority = Priority.SuperLow
     End Sub
 End Class
