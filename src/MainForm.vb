@@ -608,6 +608,11 @@ Public Class MainForm
             ElseIf item.ActionMode = ActionMode.CommandLine Then
                 Try
                     HideForm()
+
+                    If value.Length > 3 AndAlso value.Substring(1).StartsWith(":\") AndAlso value.Contains(" ") Then
+                        value = """" + value + """"
+                    End If
+
                     Dim match = Regex.Match(value, "((?<file>[^\s""]+)|""(?<file>.+?)"") *(?<args>[^\f\r]*)")
 
                     Using proc As New Process
