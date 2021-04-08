@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
 Imports System.Threading
 
-Imports VB6 = Microsoft.VisualBasic
+Imports Microsoft.VisualBasic
 
 Public Class MainForm
     Inherits Form
@@ -53,6 +53,7 @@ Public Class MainForm
     Friend WithEvents miPriorityLower As MenuItem
     Friend WithEvents miPriorityVeryLow As MenuItem
     Friend WithEvents miPrioritySuperLow As MenuItem
+    Friend WithEvents miHelp As MenuItem
     Private components As IContainer
 
     Sub InitializeComponent()
@@ -69,9 +70,15 @@ Public Class MainForm
         Me.miSearch = New MenuItem()
         Me.miDelete = New MenuItem()
         Me.miPriority = New MenuItem()
+        Me.miPrioritySuperHigh = New MenuItem()
+        Me.miPriorityVeryHigh = New MenuItem()
+        Me.miPriorityHigher = New MenuItem()
         Me.miPriorityHigh = New MenuItem()
         Me.miPriorityMedium = New MenuItem()
         Me.miPriorityLow = New MenuItem()
+        Me.miPriorityLower = New MenuItem()
+        Me.miPriorityVeryLow = New MenuItem()
+        Me.miPrioritySuperLow = New MenuItem()
         Me.miAction = New MenuItem()
         Me.miCommandLineAction = New MenuItem()
         Me.miPasteAction = New MenuItem()
@@ -93,12 +100,7 @@ Public Class MainForm
         Me.miCut = New MenuItem()
         Me.miCopy = New MenuItem()
         Me.miPaste = New MenuItem()
-        Me.miPriorityHigher = New MenuItem()
-        Me.miPriorityVeryHigh = New MenuItem()
-        Me.miPrioritySuperHigh = New MenuItem()
-        Me.miPriorityLower = New MenuItem()
-        Me.miPriorityVeryLow = New MenuItem()
-        Me.miPrioritySuperLow = New MenuItem()
+        Me.miHelp = New MenuItem()
         Me.tlpMain.SuspendLayout()
         Me.tlpName.SuspendLayout()
         Me.tlpItems.SuspendLayout()
@@ -194,9 +196,9 @@ Public Class MainForm
         'cmsLB
         '
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
-        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit})
+        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit, Me.miHelp})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(421, 807)
+        Me.cmsLB.Size = New System.Drawing.Size(421, 863)
         '
         'miNew
         '
@@ -244,26 +246,68 @@ Public Class MainForm
         Me.miPriority.Size = New System.Drawing.Size(420, 67)
         Me.miPriority.Text = "Priority"
         '
+        'miPrioritySuperHigh
+        '
+        Me.miPrioritySuperHigh.Action = Nothing
+        Me.miPrioritySuperHigh.Name = "miPrioritySuperHigh"
+        Me.miPrioritySuperHigh.Size = New System.Drawing.Size(396, 67)
+        Me.miPrioritySuperHigh.Text = "Super High"
+        '
+        'miPriorityVeryHigh
+        '
+        Me.miPriorityVeryHigh.Action = Nothing
+        Me.miPriorityVeryHigh.Name = "miPriorityVeryHigh"
+        Me.miPriorityVeryHigh.Size = New System.Drawing.Size(396, 67)
+        Me.miPriorityVeryHigh.Text = "Very High"
+        '
+        'miPriorityHigher
+        '
+        Me.miPriorityHigher.Action = Nothing
+        Me.miPriorityHigher.Name = "miPriorityHigher"
+        Me.miPriorityHigher.Size = New System.Drawing.Size(396, 67)
+        Me.miPriorityHigher.Text = "Higher"
+        '
         'miPriorityHigh
         '
         Me.miPriorityHigh.Action = Nothing
         Me.miPriorityHigh.Name = "miPriorityHigh"
-        Me.miPriorityHigh.Size = New System.Drawing.Size(538, 67)
+        Me.miPriorityHigh.Size = New System.Drawing.Size(396, 67)
         Me.miPriorityHigh.Text = "High"
         '
         'miPriorityMedium
         '
         Me.miPriorityMedium.Action = Nothing
         Me.miPriorityMedium.Name = "miPriorityMedium"
-        Me.miPriorityMedium.Size = New System.Drawing.Size(538, 67)
+        Me.miPriorityMedium.Size = New System.Drawing.Size(396, 67)
         Me.miPriorityMedium.Text = "Medium"
         '
         'miPriorityLow
         '
         Me.miPriorityLow.Action = Nothing
         Me.miPriorityLow.Name = "miPriorityLow"
-        Me.miPriorityLow.Size = New System.Drawing.Size(538, 67)
+        Me.miPriorityLow.Size = New System.Drawing.Size(396, 67)
         Me.miPriorityLow.Text = "Low"
+        '
+        'miPriorityLower
+        '
+        Me.miPriorityLower.Action = Nothing
+        Me.miPriorityLower.Name = "miPriorityLower"
+        Me.miPriorityLower.Size = New System.Drawing.Size(396, 67)
+        Me.miPriorityLower.Text = "Lower"
+        '
+        'miPriorityVeryLow
+        '
+        Me.miPriorityVeryLow.Action = Nothing
+        Me.miPriorityVeryLow.Name = "miPriorityVeryLow"
+        Me.miPriorityVeryLow.Size = New System.Drawing.Size(396, 67)
+        Me.miPriorityVeryLow.Text = "Very Low"
+        '
+        'miPrioritySuperLow
+        '
+        Me.miPrioritySuperLow.Action = Nothing
+        Me.miPrioritySuperLow.Name = "miPrioritySuperLow"
+        Me.miPrioritySuperLow.Size = New System.Drawing.Size(396, 67)
+        Me.miPrioritySuperLow.Text = "Super Low"
         '
         'miAction
         '
@@ -277,21 +321,21 @@ Public Class MainForm
         '
         Me.miCommandLineAction.Action = Nothing
         Me.miCommandLineAction.Name = "miCommandLineAction"
-        Me.miCommandLineAction.Size = New System.Drawing.Size(538, 67)
+        Me.miCommandLineAction.Size = New System.Drawing.Size(447, 67)
         Me.miCommandLineAction.Text = "CommandLine"
         '
         'miPasteAction
         '
         Me.miPasteAction.Action = Nothing
         Me.miPasteAction.Name = "miPasteAction"
-        Me.miPasteAction.Size = New System.Drawing.Size(538, 67)
+        Me.miPasteAction.Size = New System.Drawing.Size(447, 67)
         Me.miPasteAction.Text = "Paste"
         '
         'miNoneAction
         '
         Me.miNoneAction.Action = Nothing
         Me.miNoneAction.Name = "miNoneAction"
-        Me.miNoneAction.Size = New System.Drawing.Size(538, 67)
+        Me.miNoneAction.Size = New System.Drawing.Size(447, 67)
         Me.miNoneAction.Text = "None"
         '
         'miAdvanced
@@ -431,41 +475,11 @@ Public Class MainForm
         Me.miPaste.Size = New System.Drawing.Size(281, 67)
         Me.miPaste.Text = "Paste"
         '
-        'miPriorityHigher
+        'miHelp
         '
-        Me.miPriorityHigher.Name = "miPriorityHigher"
-        Me.miPriorityHigher.Size = New System.Drawing.Size(538, 66)
-        Me.miPriorityHigher.Text = "Higher"
-        '
-        'miPriorityVeryHigh
-        '
-        Me.miPriorityVeryHigh.Name = "miPriorityVeryHigh"
-        Me.miPriorityVeryHigh.Size = New System.Drawing.Size(538, 66)
-        Me.miPriorityVeryHigh.Text = "Very High"
-        '
-        'miPrioritySuperHigh
-        '
-        Me.miPrioritySuperHigh.Name = "miPrioritySuperHigh"
-        Me.miPrioritySuperHigh.Size = New System.Drawing.Size(538, 66)
-        Me.miPrioritySuperHigh.Text = "Super High"
-        '
-        'miPriorityLower
-        '
-        Me.miPriorityLower.Name = "miPriorityLower"
-        Me.miPriorityLower.Size = New System.Drawing.Size(538, 66)
-        Me.miPriorityLower.Text = "Lower"
-        '
-        'miPriorityVeryLow
-        '
-        Me.miPriorityVeryLow.Name = "miPriorityVeryLow"
-        Me.miPriorityVeryLow.Size = New System.Drawing.Size(538, 66)
-        Me.miPriorityVeryLow.Text = "Very Low"
-        '
-        'miPrioritySuperLow
-        '
-        Me.miPrioritySuperLow.Name = "miPrioritySuperLow"
-        Me.miPrioritySuperLow.Size = New System.Drawing.Size(538, 66)
-        Me.miPrioritySuperLow.Text = "Super Low"
+        Me.miHelp.Name = "miHelp"
+        Me.miHelp.Size = New System.Drawing.Size(420, 56)
+        Me.miHelp.Text = "Help"
         '
         'MainForm
         '
@@ -585,9 +599,9 @@ Public Class MainForm
     End Sub
 
     Shared Function FixBreak(value As String) As String
-        value = value.Replace(VB6.ChrW(13) + VB6.ChrW(10), VB6.ChrW(10))
-        value = value.Replace(VB6.ChrW(13), VB6.ChrW(10))
-        Return value.Replace(VB6.ChrW(10), VB6.ChrW(13) + VB6.ChrW(10))
+        value = value.Replace(ChrW(13) + ChrW(10), ChrW(10))
+        value = value.Replace(ChrW(13), ChrW(10))
+        Return value.Replace(ChrW(10), ChrW(13) + ChrW(10))
     End Function
 
     Sub Launch(asAdmin As Boolean, asFolder As Boolean)
@@ -609,7 +623,35 @@ Public Class MainForm
                 Try
                     HideForm()
 
-                    If value.Length > 3 AndAlso value.Substring(1).StartsWith(":\") AndAlso value.Contains(" ") Then
+                    value = FixBreak(value)
+                    Dim workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                    Dim startMinimized As Boolean
+                    Dim startMaximized As Boolean
+                    Dim startHidden As Boolean
+
+                    If value.Contains(vbCrLf) Then
+                        For Each line In value.Split(vbCrLf)
+                            Dim trimmedLine = line.Trim
+
+                            If trimmedLine <> "" AndAlso Not trimmedLine.StartsWith("#") Then
+                                If trimmedLine.StartsWith("working directory:") Then
+                                    workingDirectory = trimmedLine.Substring(18).Trim
+                                ElseIf trimmedLine = "minimized" Then
+                                    startMinimized = True
+                                ElseIf trimmedLine = "maximized" Then
+                                    startMaximized = True
+                                ElseIf trimmedLine = "hidden" Then
+                                    startHidden = True
+                                Else
+                                    value = line
+                                End If
+                            End If
+                        Next
+                    End If
+
+                    If value.Length > 3 AndAlso value.Substring(1).StartsWith(":\") AndAlso
+                        value.Contains(" ") AndAlso (File.Exists(value) OrElse Directory.Exists(value)) Then
+
                         value = """" + value + """"
                     End If
 
@@ -624,7 +666,16 @@ Public Class MainForm
                         End If
 
                         proc.StartInfo.UseShellExecute = True
-                        proc.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                        proc.StartInfo.WorkingDirectory = workingDirectory
+
+                        If startMinimized Then
+                            proc.StartInfo.WindowStyle = ProcessWindowStyle.Minimized
+                        ElseIf startMaximized Then
+                            proc.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+                        ElseIf startHidden Then
+                            proc.StartInfo.UseShellExecute = False
+                            proc.StartInfo.CreateNoWindow = True
+                        End If
 
                         If asAdmin Then
                             proc.StartInfo.Verb = "runas"
@@ -793,6 +844,8 @@ Public Class MainForm
         Dim workingArea = Screen.FromControl(Me).WorkingArea
 
         Select Case e.KeyData
+            Case Keys.F1
+                miHelp.PerformClick()
             Case Keys.F2
                 RenameSelectedItem()
             Case Keys.F4
@@ -1168,6 +1221,7 @@ Public Class MainForm
         SetShortcutKeyDisplayString(miNew, "Ctrl+N")
         SetShortcutKeyDisplayString(miSearchAndReplace, "Ctrl+H")
         SetShortcutKeyDisplayString(miDelete, "Ctrl+Del")
+        SetShortcutKeyDisplayString(miHelp, "F1")
         SetShortcutKeyDisplayString(miRename, "F2")
         SetShortcutKeyDisplayString(miEdit, "F4")
         SetShortcutKeyDisplayString(miSearch, "F6")
@@ -1331,5 +1385,21 @@ Public Class MainForm
 
     Sub miPrioritySuperLow_Click(sender As Object, e As EventArgs) Handles miPrioritySuperLow.Click
         DirectCast(lbItems.SelectedItem, Item).Priority = Priority.SuperLow
+    End Sub
+
+    Sub miExit_Click(sender As Object, e As EventArgs) Handles miExit.Click
+        Close()
+    End Sub
+
+    Sub miHelp_Click(sender As Object, e As EventArgs) Handles miHelp.Click
+        HideForm()
+        Process.Start("https://github.com/stax76/KeyLauncher")
+    End Sub
+
+    Sub rtb_KeyDown(sender As Object, e As KeyEventArgs) Handles rtb.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.V Then
+            rtb.Paste(DataFormats.GetFormat("Text"))
+            e.Handled = True
+        End If
     End Sub
 End Class
