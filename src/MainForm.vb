@@ -728,6 +728,11 @@ Public Class MainForm
         End If
 
         Dim name = Path.GetFileNameWithoutExtension(files(0))
+
+        If Directory.Exists(filePath) Then
+            name += " Folder"
+        End If
+
         name = InputBox("Please enter a name.", "Name", name)
 
         If name <> "" Then
