@@ -35,7 +35,7 @@ Public Class MainForm
     Friend WithEvents miShowAll As MenuItem
     Friend WithEvents miEdit As MenuItem
     Friend WithEvents miSearch As MenuItem
-    Friend WithEvents miHide As MenuItem
+    Friend WithEvents miClearHide As MenuItem
     Friend WithEvents miExit As MenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents miMoveWindowLeft As MenuItem
@@ -91,16 +91,16 @@ Public Class MainForm
         Me.miMoveWindowRight = New MenuItem()
         Me.miMoveWindowTop = New MenuItem()
         Me.miMoveWindowBottom = New MenuItem()
-        Me.miHide = New MenuItem()
+        Me.miClearHide = New MenuItem()
         Me.miAbout = New MenuItem()
         Me.miExit = New MenuItem()
+        Me.miHelp = New MenuItem()
         Me.tlpRTB = New System.Windows.Forms.TableLayoutPanel()
         Me.rtb = New System.Windows.Forms.RichTextBox()
         Me.cmsRTB = New ContextMenuStripEx(Me.components)
         Me.miCut = New MenuItem()
         Me.miCopy = New MenuItem()
         Me.miPaste = New MenuItem()
-        Me.miHelp = New MenuItem()
         Me.tlpMain.SuspendLayout()
         Me.tlpName.SuspendLayout()
         Me.tlpItems.SuspendLayout()
@@ -196,16 +196,16 @@ Public Class MainForm
         'cmsLB
         '
         Me.cmsLB.ImageScalingSize = New System.Drawing.Size(48, 48)
-        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miHide, Me.miAbout, Me.miExit, Me.miHelp})
+        Me.cmsLB.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miNew, Me.miRename, Me.miEdit, Me.miSearch, Me.miDelete, Me.miPriority, Me.miAction, Me.miAdvanced, Me.miClearHide, Me.miAbout, Me.miExit, Me.miHelp})
         Me.cmsLB.Name = "cmsLB"
-        Me.cmsLB.Size = New System.Drawing.Size(421, 863)
+        Me.cmsLB.Size = New System.Drawing.Size(289, 808)
         '
         'miNew
         '
         Me.miNew.Action = Nothing
         Me.miNew.Name = "miNew"
         Me.miNew.ShortcutKeyDisplayString = ""
-        Me.miNew.Size = New System.Drawing.Size(420, 67)
+        Me.miNew.Size = New System.Drawing.Size(288, 67)
         Me.miNew.Text = "New"
         '
         'miRename
@@ -213,21 +213,21 @@ Public Class MainForm
         Me.miRename.Action = Nothing
         Me.miRename.Name = "miRename"
         Me.miRename.ShortcutKeyDisplayString = ""
-        Me.miRename.Size = New System.Drawing.Size(420, 67)
+        Me.miRename.Size = New System.Drawing.Size(288, 67)
         Me.miRename.Text = "Rename      "
         '
         'miEdit
         '
         Me.miEdit.Action = Nothing
         Me.miEdit.Name = "miEdit"
-        Me.miEdit.Size = New System.Drawing.Size(420, 67)
+        Me.miEdit.Size = New System.Drawing.Size(288, 67)
         Me.miEdit.Text = "Edit"
         '
         'miSearch
         '
         Me.miSearch.Action = Nothing
         Me.miSearch.Name = "miSearch"
-        Me.miSearch.Size = New System.Drawing.Size(420, 67)
+        Me.miSearch.Size = New System.Drawing.Size(288, 67)
         Me.miSearch.Text = "Search"
         '
         'miDelete
@@ -235,7 +235,7 @@ Public Class MainForm
         Me.miDelete.Action = Nothing
         Me.miDelete.Name = "miDelete"
         Me.miDelete.ShortcutKeyDisplayString = ""
-        Me.miDelete.Size = New System.Drawing.Size(420, 67)
+        Me.miDelete.Size = New System.Drawing.Size(288, 67)
         Me.miDelete.Text = "Delete"
         '
         'miPriority
@@ -243,7 +243,7 @@ Public Class MainForm
         Me.miPriority.Action = Nothing
         Me.miPriority.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPrioritySuperHigh, Me.miPriorityVeryHigh, Me.miPriorityHigher, Me.miPriorityHigh, Me.miPriorityMedium, Me.miPriorityLow, Me.miPriorityLower, Me.miPriorityVeryLow, Me.miPrioritySuperLow})
         Me.miPriority.Name = "miPriority"
-        Me.miPriority.Size = New System.Drawing.Size(420, 67)
+        Me.miPriority.Size = New System.Drawing.Size(288, 67)
         Me.miPriority.Text = "Priority"
         '
         'miPrioritySuperHigh
@@ -314,7 +314,7 @@ Public Class MainForm
         Me.miAction.Action = Nothing
         Me.miAction.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCommandLineAction, Me.miPasteAction, Me.miNoneAction})
         Me.miAction.Name = "miAction"
-        Me.miAction.Size = New System.Drawing.Size(420, 67)
+        Me.miAction.Size = New System.Drawing.Size(288, 67)
         Me.miAction.Text = "Action"
         '
         'miCommandLineAction
@@ -343,7 +343,7 @@ Public Class MainForm
         Me.miAdvanced.Action = Nothing
         Me.miAdvanced.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSearchAndReplace, Me.miShowAll, Me.ToolStripMenuItem1, Me.miMoveWindowLeft, Me.miMoveWindowRight, Me.miMoveWindowTop, Me.miMoveWindowBottom})
         Me.miAdvanced.Name = "miAdvanced"
-        Me.miAdvanced.Size = New System.Drawing.Size(420, 67)
+        Me.miAdvanced.Size = New System.Drawing.Size(288, 67)
         Me.miAdvanced.Text = "Advanced"
         '
         'miSearchAndReplace
@@ -396,24 +396,31 @@ Public Class MainForm
         '
         'miHide
         '
-        Me.miHide.Action = Nothing
-        Me.miHide.Name = "miHide"
-        Me.miHide.Size = New System.Drawing.Size(420, 67)
-        Me.miHide.Text = "Hide"
+        Me.miClearHide.Action = Nothing
+        Me.miClearHide.Name = "miHide"
+        Me.miClearHide.Size = New System.Drawing.Size(288, 67)
+        Me.miClearHide.Text = "Clear/Hide"
         '
         'miAbout
         '
         Me.miAbout.Action = Nothing
         Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(420, 67)
+        Me.miAbout.Size = New System.Drawing.Size(288, 67)
         Me.miAbout.Text = "About"
         '
         'miExit
         '
         Me.miExit.Action = Nothing
         Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(420, 67)
+        Me.miExit.Size = New System.Drawing.Size(288, 67)
         Me.miExit.Text = "Exit"
+        '
+        'miHelp
+        '
+        Me.miHelp.Action = Nothing
+        Me.miHelp.Name = "miHelp"
+        Me.miHelp.Size = New System.Drawing.Size(288, 67)
+        Me.miHelp.Text = "Help"
         '
         'tlpRTB
         '
@@ -474,12 +481,6 @@ Public Class MainForm
         Me.miPaste.Name = "miPaste"
         Me.miPaste.Size = New System.Drawing.Size(281, 67)
         Me.miPaste.Text = "Paste"
-        '
-        'miHelp
-        '
-        Me.miHelp.Name = "miHelp"
-        Me.miHelp.Size = New System.Drawing.Size(420, 56)
-        Me.miHelp.Text = "Help"
         '
         'MainForm
         '
@@ -758,6 +759,8 @@ Public Class MainForm
                 Launch(False, True)
             Case Keys.Shift Or Keys.Enter
                 Launch(True, False)
+            Case Keys.Delete
+                DeleteSelectedItem()
         End Select
     End Sub
 
@@ -860,20 +863,27 @@ Public Class MainForm
                 Else
                     DisableEditMode()
                 End If
-            Case Keys.F6
+            Case Keys.F6, Keys.F3
                 ActiveControl = tbName
             Case Keys.Escape
-                LastSearch = tbName.Text
-                SupressAnnoyingSound = True
-                HideForm()
+                If tbName.Text = "" Then
+                    LastSearch = tbName.Text
+                    SupressAnnoyingSound = True
+                    HideForm()
+                Else
+                    tbName.Text = ""
+                    ActiveControl = tbName
+                End If
             Case Keys.Alt Or Keys.Enter
                 e.Handled = True
                 SupressAnnoyingSound = True
                 Clipboard.SetText(rtb.Text)
                 HideForm()
+            Case Keys.Control Or Keys.Shift Or Keys.A
+                miAbout.PerformClick()
             Case Keys.Control Or Keys.N
                 AddNew()
-            Case Keys.Control Or Keys.Delete
+            Case Keys.F5
                 DeleteSelectedItem()
             Case Keys.Control Or Keys.H, Keys.Control Or Keys.R
                 SearchAndReplace()
@@ -1223,25 +1233,26 @@ Public Class MainForm
             miPasteAction.Checked = item.ActionMode = ActionMode.Paste
         End If
 
-        SetShortcutKeyDisplayString(miNew, "Ctrl+N")
-        SetShortcutKeyDisplayString(miSearchAndReplace, "Ctrl+H")
-        SetShortcutKeyDisplayString(miDelete, "Ctrl+Del")
-        SetShortcutKeyDisplayString(miHelp, "F1")
-        SetShortcutKeyDisplayString(miRename, "F2")
+        SetShortcutKeyDisplayString(miAbout, "Ctrl+Shift+A")
+        SetShortcutKeyDisplayString(miClearHide, "ESC")
+        SetShortcutKeyDisplayString(miCommandLineAction, "Ctrl+Shift+C")
+        SetShortcutKeyDisplayString(miDelete, "F5")
         SetShortcutKeyDisplayString(miEdit, "F4")
-        SetShortcutKeyDisplayString(miSearch, "F6")
-        SetShortcutKeyDisplayString(miPriorityHigh, "Ctrl+1")
-        SetShortcutKeyDisplayString(miPriorityMedium, "Ctrl+2")
-        SetShortcutKeyDisplayString(miPriorityLow, "Ctrl+3")
-        SetShortcutKeyDisplayString(miHide, "ESC")
         SetShortcutKeyDisplayString(miExit, "Alt+F4")
+        SetShortcutKeyDisplayString(miHelp, "F1")
+        SetShortcutKeyDisplayString(miMoveWindowBottom, "Ctrl+Shift+Bottom")
         SetShortcutKeyDisplayString(miMoveWindowLeft, "Ctrl+Shift+Left")
         SetShortcutKeyDisplayString(miMoveWindowRight, "Ctrl+Shift+Right")
         SetShortcutKeyDisplayString(miMoveWindowTop, "Ctrl+Shift+Top")
-        SetShortcutKeyDisplayString(miMoveWindowBottom, "Ctrl+Shift+Bottom")
+        SetShortcutKeyDisplayString(miNew, "Ctrl+N")
         SetShortcutKeyDisplayString(miNoneAction, "Ctrl+Shift+N")
         SetShortcutKeyDisplayString(miPasteAction, "Ctrl+Shift+P")
-        SetShortcutKeyDisplayString(miCommandLineAction, "Ctrl+Shift+C")
+        SetShortcutKeyDisplayString(miPriorityHigh, "Ctrl+1")
+        SetShortcutKeyDisplayString(miPriorityLow, "Ctrl+3")
+        SetShortcutKeyDisplayString(miPriorityMedium, "Ctrl+2")
+        SetShortcutKeyDisplayString(miRename, "F2")
+        SetShortcutKeyDisplayString(miSearch, "F6")
+        SetShortcutKeyDisplayString(miSearchAndReplace, "Ctrl+H")
     End Sub
 
     Protected Overrides Sub OnLoad(e As EventArgs)
