@@ -737,8 +737,7 @@ Public Class MainForm
         name = InputBox("Please enter a name.", "Name", name)
 
         If name <> "" Then
-            Dim value = If(filePath.Contains(" "), """" & filePath & """", filePath)
-            Dim item = New Item(name, value)
+            Dim item = New Item(name, filePath)
             Items.Add(item)
             tbName.Text = name
             tbName.SelectAll()
@@ -866,14 +865,9 @@ Public Class MainForm
             Case Keys.F6, Keys.F3
                 ActiveControl = tbName
             Case Keys.Escape
-                If tbName.Text = "" Then
-                    LastSearch = tbName.Text
-                    SupressAnnoyingSound = True
-                    HideForm()
-                Else
-                    tbName.Text = ""
-                    ActiveControl = tbName
-                End If
+                LastSearch = tbName.Text
+                SupressAnnoyingSound = True
+                HideForm()
             Case Keys.Alt Or Keys.Enter
                 e.Handled = True
                 SupressAnnoyingSound = True
