@@ -877,7 +877,7 @@ Public Class MainForm
                 miAbout.PerformClick()
             Case Keys.Control Or Keys.N
                 AddNew()
-            Case Keys.F5
+            Case Keys.Control Or Keys.Delete
                 DeleteSelectedItem()
             Case Keys.Control Or Keys.H, Keys.Control Or Keys.R
                 SearchAndReplace()
@@ -1230,7 +1230,7 @@ Public Class MainForm
         SetShortcutKeyDisplayString(miAbout, "Ctrl+Shift+A")
         SetShortcutKeyDisplayString(miClearHide, "ESC")
         SetShortcutKeyDisplayString(miCommandLineAction, "Ctrl+Shift+C")
-        SetShortcutKeyDisplayString(miDelete, "F5")
+        SetShortcutKeyDisplayString(miDelete, "Ctrl+Del")
         SetShortcutKeyDisplayString(miEdit, "F4")
         SetShortcutKeyDisplayString(miExit, "Alt+F4")
         SetShortcutKeyDisplayString(miHelp, "F1")
