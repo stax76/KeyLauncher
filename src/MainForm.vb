@@ -182,6 +182,7 @@ Public Class MainForm
         Me.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lbItems.ContextMenuStrip = Me.cmsLB
         Me.lbItems.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.lbItems.Font = New System.Drawing.Font("Consolas", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbItems.FormattingEnabled = True
         Me.lbItems.IntegralHeight = False
         Me.lbItems.ItemHeight = 76
@@ -394,10 +395,10 @@ Public Class MainForm
         Me.miMoveWindowBottom.Size = New System.Drawing.Size(576, 67)
         Me.miMoveWindowBottom.Text = "Move Window Bottom"
         '
-        'miHide
+        'miClearHide
         '
         Me.miClearHide.Action = Nothing
-        Me.miClearHide.Name = "miHide"
+        Me.miClearHide.Name = "miClearHide"
         Me.miClearHide.Size = New System.Drawing.Size(288, 67)
         Me.miClearHide.Text = "Clear/Hide"
         '
@@ -446,6 +447,7 @@ Public Class MainForm
         Me.rtb.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtb.ContextMenuStrip = Me.cmsRTB
         Me.rtb.EnableAutoDragDrop = True
+        Me.rtb.Font = New System.Drawing.Font("Consolas", 10.0!)
         Me.rtb.Location = New System.Drawing.Point(0, 0)
         Me.rtb.Margin = New System.Windows.Forms.Padding(0)
         Me.rtb.Name = "rtb"
@@ -561,6 +563,7 @@ Public Class MainForm
             MessageBox.Show("Launcher is already running.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Application.EnableVisualStyles()
+            Application.SetCompatibleTextRenderingDefault(False)
             Dim TempMainForm = New MainForm()
             Application.Run()
         End If
@@ -694,18 +697,15 @@ Public Class MainForm
         End If
     End Sub
 
-    Function InputBox(text As String) As String
-        Return InputBox(text, Application.ProductName, "")
-    End Function
+    Function InputBox(text As String, Optional value As String = "") As String
+        Using form As New InputBoxForm()
+            form.lPrompt.Text = text
+            form.tbInput.Text = value
 
-    Function InputBox(text As String, title As String, Optional value As String = "") As String
-        Dim box As New InputBox()
-        box.Title = title
-        box.Text = text
-        box.Value = value
-        box.Owner = Me
-        box.Show()
-        Return box.Value
+            If form.ShowDialog() = DialogResult.OK Then
+                Return form.tbInput.Text
+            End If
+        End Using
     End Function
 
     Sub MainForm_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
@@ -734,7 +734,7 @@ Public Class MainForm
             name += " Folder"
         End If
 
-        name = InputBox("Please enter a name.", "Name", name)
+        name = InputBox("Enter a name and press enter.", name)
 
         If name <> "" Then
             Dim item = New Item(name, filePath)
@@ -779,10 +779,10 @@ Public Class MainForm
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
         If Not item Is Nothing Then
-            Name = InputBox("Please enter a new name.", lbItems.Text, item.Name)
+            Dim name = InputBox("Enter a name and press enter.", item.Name)
 
-            If Name <> "" Then
-                item.Name = Name
+            If name <> "" Then
+                item.Name = name
                 Items.Sort()
                 tbName_TextChanged()
 
@@ -876,6 +876,7 @@ Public Class MainForm
             Case Keys.Control Or Keys.Shift Or Keys.A
                 miAbout.PerformClick()
             Case Keys.Control Or Keys.N
+                SupressAnnoyingSound = True
                 AddNew()
             Case Keys.Control Or Keys.Delete
                 DeleteSelectedItem()
@@ -1165,10 +1166,7 @@ Public Class MainForm
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
         If Not item Is Nothing AndAlso
-            MessageBox.Show(Me, "Delete " & item.Name & "?",
-                            Application.ProductName,
-                            MessageBoxButtons.OKCancel,
-                            MessageBoxIcon.Question) = DialogResult.OK Then
+            MsgBox.Show("Press enter to delete " & item.Name & ".") = DialogResult.OK Then
 
             Items.Remove(item)
             lbItems.Items.Remove(item)
@@ -1293,22 +1291,23 @@ Public Class MainForm
     End Sub
 
     Sub AddNew()
-        Dim itemName = InputBox("Please enter a name.", "New")
+        Dim name = InputBox("Enter a name and press enter.")
+
+        If name = "" Then
+            Exit Sub
+        End If
 
         For Each item In Items
-            If item.Name = itemName Then
-                MessageBox.Show(Me, "There is already a item called " & itemName & ".",
-                                    Application.ProductName,
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information)
+            If item.Name = name Then
+                MessageBox.Show(Me, "There is already a item called " & name & ".",
+                    Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
-        Next item
+        Next
 
-        Items.Add(New Item(itemName, ""))
+        Items.Add(New Item(name, ""))
         Items.Sort()
-
-        tbName.Text = itemName
+        tbName.Text = name
         tbName_TextChanged()
         ActiveControl = rtb
         EnableEditMode()

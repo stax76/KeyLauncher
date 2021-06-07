@@ -1,6 +1,5 @@
 
 Imports System.ComponentModel
-Imports VB6 = Microsoft.VisualBasic
 
 Public Class g
     Private Shared HasChangedValue As Boolean
@@ -20,8 +19,8 @@ Public Class g
 End Class
 
 Module MainModule
-    Public Const BR As String = VB6.vbCrLf
-    Public Const BR2 As String = VB6.vbCrLf + VB6.vbCrLf
+    Public BR As String = Environment.NewLine
+    Public BR2 As String = Environment.NewLine + Environment.NewLine
 
     Sub Msg(text As Object)
         Msg(text.ToString, MessageBoxIcon.Information)
