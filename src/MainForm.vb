@@ -734,7 +734,7 @@ Public Class MainForm
             name += " Folder"
         End If
 
-        name = InputBox("Enter a name and press enter.", name)
+        name = InputBox("Enter a name.", name)
 
         If name <> "" Then
             Dim item = New Item(name, filePath)
@@ -779,7 +779,7 @@ Public Class MainForm
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
         If Not item Is Nothing Then
-            Dim name = InputBox("Enter a name and press enter.", item.Name)
+            Dim name = InputBox("Enter a name.", item.Name)
 
             If name <> "" Then
                 item.Name = name
@@ -1166,7 +1166,7 @@ Public Class MainForm
         Dim item = TryCast(lbItems.SelectedItem, Item)
 
         If Not item Is Nothing AndAlso
-            MsgBox.Show("Press enter to delete " & item.Name & ".") = DialogResult.OK Then
+            MsgBox.Show("Delete " & item.Name & "?") = DialogResult.OK Then
 
             Items.Remove(item)
             lbItems.Items.Remove(item)
@@ -1291,7 +1291,7 @@ Public Class MainForm
     End Sub
 
     Sub AddNew()
-        Dim name = InputBox("Enter a name and press enter.")
+        Dim name = InputBox("Enter a name.")
 
         If name = "" Then
             Exit Sub
