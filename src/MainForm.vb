@@ -516,7 +516,6 @@ Public Class MainForm
 
     Private BlockTextChanged As Boolean
     Private Items As List(Of Item)
-    Private SettingsFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\KeyLauncher\"
     Private SettingsFileName As String = "Settings.xml"
     Private TextBackColor As Color
     Private TextForeColor As Color
@@ -582,6 +581,62 @@ Public Class MainForm
 
         MyBase.Dispose(disposing)
     End Sub
+
+    Private _SettingsFolder As String
+
+    ReadOnly Property SettingsFolder As String
+        Get
+            If _SettingsFolder Is Nothing Then
+                _SettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\KeyLauncher\"
+
+                If Not Directory.Exists(_SettingsFolder) Then
+                    Dim linkFile = StartupFolder + "settings-directory.txt"
+
+                    If File.Exists(linkFile) Then
+                        Dim linkTarget = File.ReadAllText(linkFile).Trim()
+
+                        If linkTarget.StartsWith(".") Then
+                            linkTarget = StartupFolder + linkTarget
+                        End If
+
+                        If Directory.Exists(linkTarget) Then
+                            _SettingsFolder = FixFolder(linkTarget)
+                        End If
+                    End If
+                End If
+            End If
+
+            Return _SettingsFolder
+        End Get
+    End Property
+
+    Shared StartupValue As String
+
+    Shared ReadOnly Property StartupFolder As String
+        Get
+            If StartupValue Is Nothing Then
+                StartupValue = FixFolder(Application.StartupPath)
+            End If
+
+            Return StartupValue
+        End Get
+    End Property
+
+    Shared Function FixFolder(folderPath As String) As String
+        If folderPath = "" Then
+            Return ""
+        End If
+
+        While folderPath.EndsWith("\\")
+            folderPath = folderPath.Substring(0, folderPath.Length - 1)
+        End While
+
+        If folderPath.EndsWith("\") Then
+            Return folderPath
+        End If
+
+        Return folderPath + "\"
+    End Function
 
     Sub LoadItems()
         If File.Exists(SettingsFolder + SettingsFileName) Then
