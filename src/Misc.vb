@@ -2,18 +2,9 @@
 Imports System.ComponentModel
 
 Public Class g
-    Private Shared HasChangedValue As Boolean
-
     Shared Property HasChanged() As Boolean
-        Get
-            Return HasChangedValue
-        End Get
-        Set(value As Boolean)
-            HasChangedValue = value
-        End Set
-    End Property
 
-    Public Shared Sub HandleException(ex As Exception)
+    Shared Sub HandleException(ex As Exception)
         Msg(ex.ToString(), MessageBoxIcon.Error)
     End Sub
 End Class
@@ -76,11 +67,13 @@ Public Class Item
             Return NameValue
         End Get
         Set(value As String)
-            If value Is Nothing Then
-                NameValue = ""
-                g.HasChanged = True
-            ElseIf value <> NameValue Then
-                NameValue = value
+            If value <> NameValue Then
+                If value Is Nothing Then
+                    NameValue = ""
+                ElseIf value <> NameValue Then
+                    NameValue = value
+                End If
+
                 g.HasChanged = True
             End If
         End Set
@@ -97,11 +90,13 @@ Public Class Item
             Return ValueValue
         End Get
         Set(value As String)
-            If value Is Nothing Then
-                ValueValue = ""
-                g.HasChanged = True
-            ElseIf value <> ValueValue Then
-                ValueValue = value
+            If value <> ValueValue Then
+                If value Is Nothing Then
+                    ValueValue = ""
+                ElseIf value <> ValueValue Then
+                    ValueValue = value
+                End If
+
                 g.HasChanged = True
             End If
         End Set
